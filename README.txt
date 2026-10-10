@@ -1,10 +1,12 @@
-LIGNIN BIO-ADDITIVE RESEARCH WEBSITE — VERSION 4
+LIGNIN BIO-ADDITIVE RESEARCH WEBSITE — VERSION 5
 
 Included:
 - index.html: professional, responsive research website (single page)
 - 404.html: themed "page not found" page (served automatically by Netlify)
-- assets/: responsive images (WebP at 3 widths + PNG fallback), SVG/ICO
-  favicons and 192/512 px app icons
+- assets/regen-pavillion-poster.pdf: the presented research poster, shown in
+  the "Poster" section with a preview image and a download button
+- assets/: responsive images (WebP at 3 widths + PNG fallback), poster
+  preview (WebP + PNG), SVG/ICO favicons and 192/512 px app icons
 - manifest.webmanifest: installable web-app metadata
 - netlify.toml: Netlify build, security headers and caching configuration
 - robots.txt, sitemap.xml: search-engine basics
