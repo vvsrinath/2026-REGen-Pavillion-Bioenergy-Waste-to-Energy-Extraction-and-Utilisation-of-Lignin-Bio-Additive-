@@ -1,8 +1,10 @@
-LIGNIN BIO-ADDITIVE RESEARCH WEBSITE — VERSION 5
+LIGNIN BIO-ADDITIVE RESEARCH WEBSITE — VERSION 6
 
 Included:
 - index.html: professional, responsive research website (single page)
 - 404.html: themed "page not found" page (served automatically by Netlify)
+- assets/regen-pavillion-abstract.pdf: the submitted poster-challenge abstract,
+  reproduced in the "Abstract" section with a download button
 - assets/regen-pavillion-poster.pdf: the presented research poster, shown in
   the "Poster" section with a preview image and a download button
 - assets/: responsive images (WebP at 3 widths + PNG fallback), poster
