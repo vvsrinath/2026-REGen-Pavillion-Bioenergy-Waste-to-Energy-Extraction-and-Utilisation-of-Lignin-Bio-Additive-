@@ -7,18 +7,29 @@
 <meta name="theme-color" content="#143d2b">
 <meta name="robots" content="index, follow">
 <title>Lignin Bio-Additive Research | KARE</title>
+<!-- Replace https://YOUR-SITE.netlify.app/ with your live URL after deploying (canonical, og:url, og:image, twitter:image). -->
+<link rel="canonical" href="https://YOUR-SITE.netlify.app/">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-<link rel="apple-touch-icon" href="assets/favicon.svg">
-<link rel="preload" as="image" href="assets/full-research-workflow.webp" type="image/webp">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preload" as="image" type="image/webp" imagesrcset="assets/full-research-workflow-600.webp 600w, assets/full-research-workflow-1000.webp 1000w, assets/full-research-workflow-1600.webp 1600w" imagesizes="(max-width:900px) 92vw, 40vw">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Lignin Bio-Additive Research">
+<meta property="og:url" content="https://YOUR-SITE.netlify.app/">
 <meta property="og:title" content="Extraction and Utilisation of Lignin as Bio-Additive in a CI Engine">
 <meta property="og:description" content="KARE student research project investigating lignin-derived bio-additives for diesel fuel and compression-ignition engine evaluation.">
-<meta property="og:image" content="assets/full-research-workflow.png">
+<meta property="og:image" content="https://YOUR-SITE.netlify.app/assets/full-research-workflow.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="Illustrative research workflow from biomass to lignin bio-additive and CI engine evaluation">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Extraction and Utilisation of Lignin as Bio-Additive in a CI Engine">
 <meta name="twitter:description" content="KARE student research project investigating lignin-derived bio-additives for diesel fuel and compression-ignition engine evaluation.">
-<meta name="twitter:image" content="assets/full-research-workflow.png">
+<meta name="twitter:image" content="https://YOUR-SITE.netlify.app/assets/full-research-workflow.png">
+<meta name="twitter:image:alt" content="Illustrative research workflow from biomass to lignin bio-additive and CI engine evaluation">
+<!-- Optional analytics: enable Netlify Analytics in the dashboard, or paste a privacy-friendly snippet here. See README.txt. -->
 <style>
 :root{--forest:#143d2b;--green:#1d7049;--mint:#eaf4ed;--gold:#d9a441;--ink:#172820;--muted:#637269;--line:#dfe8e1;--paper:#fbfcfa;--blue:#2f678d;--shadow:0 16px 45px rgba(20,61,43,.08)}
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:85px}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#fff;line-height:1.7}img{max-width:100%;display:block}a{color:var(--green)}.wrap{width:min(1160px,92%);margin:auto}
@@ -27,38 +38,48 @@
 .section{padding:76px 0}.section.alt{background:var(--paper)}.section-head{max-width:760px;margin-bottom:30px}.kicker{color:var(--green);font-size:.75rem;text-transform:uppercase;letter-spacing:.14em;font-weight:850}.section h2{font-size:clamp(1.75rem,3vw,2.5rem);line-height:1.15;letter-spacing:-.03em;margin:9px 0 13px}.lead{color:var(--muted);font-size:1.03rem;margin:0}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}.card{border:1px solid var(--line);border-radius:17px;background:#fff;padding:24px;box-shadow:0 4px 16px rgba(20,61,43,.025)}.card h3{font-size:1.06rem;margin:0 0 9px}.card p,.card li{color:#5c6b62;font-size:.94rem}.number{width:39px;height:39px;display:grid;place-items:center;border-radius:12px;background:var(--mint);color:var(--green);font-weight:850;margin-bottom:16px}.split{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}.visual{background:#fff;border:1px solid var(--line);padding:9px;border-radius:18px;box-shadow:var(--shadow)}.visual img{border-radius:12px;width:100%}.caption{font-size:.8rem;color:var(--muted);padding:9px 5px 2px}.objectives{display:grid;grid-template-columns:1fr 1fr;gap:12px}.objective{display:flex;gap:14px;padding:19px;border:1px solid var(--line);border-radius:14px;background:#fff}.objective b{color:var(--green);font-size:.9rem}.objective p{margin:0;color:#52645a}
 .workflow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.step{border:1px solid #d6e5d9;border-radius:14px;padding:18px;background:#fff;min-height:154px}.step .n{font-size:.72rem;color:var(--green);font-weight:900;letter-spacing:.12em}.step strong{display:block;margin:9px 0 6px;line-height:1.3}.step span{display:block;font-size:.88rem;color:var(--muted)}.notice{margin-top:20px;background:#fff8e8;border:1px solid #f1dfb6;border-left:4px solid var(--gold);border-radius:10px;padding:17px 19px;color:#65522d;font-size:.93rem}.gallery{display:grid;grid-template-columns:1fr 1fr;gap:18px}.gallery figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}.gallery img{width:100%;height:auto;background:#f8faf7}.gallery figcaption{padding:13px 16px;font-size:.88rem;color:var(--muted)}
 .team-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}.person{display:flex;gap:15px;align-items:flex-start;padding:19px 0;border-bottom:1px solid var(--line)}.avatar{width:43px;height:43px;border-radius:13px;background:var(--mint);color:var(--green);display:grid;place-items:center;font-weight:900;flex-shrink:0}.person h3{margin:0;font-size:1rem}.person p{margin:3px 0 0;color:var(--muted);font-size:.9rem}.contact{display:block;color:var(--green);font-size:.88rem;overflow-wrap:anywhere;margin-top:5px}.mentor-card{background:var(--forest);color:#fff;border-radius:18px;padding:27px}.mentor-card .eyebrow{color:#bce2c8}.mentor-card h3{font-size:1.35rem;margin:12px 0 4px}.mentor-card p{color:#d0e1d5;margin:4px 0}.mentor-card a{color:#e8f5eb}.scholar{display:inline-flex;margin-top:16px;padding:10px 13px;border:1px solid #638775;border-radius:9px;text-decoration:none;color:#fff!important;font-weight:700;font-size:.88rem}.refs{padding-left:20px}.refs li{padding:0 0 12px 5px;color:#53645a;font-size:.92rem;overflow-wrap:anywhere}.refs a{overflow-wrap:anywhere}.footer{background:#102f22;color:#e7f3e9;padding:32px 0}.footer-row{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}.footer p{margin:6px 0;color:#b9d1c0;font-size:.88rem}.footer a{color:#fff}.small{font-size:.8rem;color:var(--muted)}
-@media(max-width:900px){.hero-inner{grid-template-columns:1fr;gap:28px;padding:56px 0}.hero-image{max-width:640px}.grid{grid-template-columns:1fr 1fr}.workflow{grid-template-columns:1fr 1fr}.team-grid{grid-template-columns:1fr}.nav{padding:13px 0;align-items:flex-start;flex-direction:column}.navlinks{gap:13px}.section{padding:58px 0}}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr;gap:28px;padding:56px 0}.hero-image{max-width:640px}.grid{grid-template-columns:1fr 1fr}.workflow{grid-template-columns:1fr 1fr}.team-grid{grid-template-columns:1fr}.nav{padding:13px 0;align-items:center;flex-wrap:wrap}.nav-toggle-label{display:flex}.navlinks{display:none;order:5;flex-basis:100%;flex-direction:column;align-items:stretch;gap:0;padding-top:6px}.nav-toggle:checked~.navlinks{display:flex}.navlinks a{display:block;padding:11px 2px;border-top:1px solid var(--line);font-size:.95rem}.section{padding:58px 0}}
 @media(max-width:600px){.grid,.objectives,.gallery,.workflow,.split{grid-template-columns:1fr}.hero-inner{padding:42px 0}.section{padding:46px 0}.card{padding:19px}.navlinks{gap:9px 13px}.navlinks a{font-size:.83rem}.hero h1{font-size:2.25rem}}
 .skip-link{position:absolute;left:-9999px;top:0;z-index:100;background:var(--forest);color:#fff;padding:11px 18px;border-radius:0 0 10px 0;font-weight:750;text-decoration:none}.skip-link:focus{left:0}
 :focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:6px}
+.nav-toggle{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.nav-toggle-label{display:none;flex-direction:column;justify-content:center;gap:5px;width:46px;height:42px;padding:10px;border:1px solid var(--line);border-radius:11px;cursor:pointer;background:#fff}
+.nav-toggle-label span{display:block;height:2px;width:100%;background:var(--forest);border-radius:2px;transition:transform .2s,opacity .2s}
+.nav-toggle:focus-visible+.nav-toggle-label{outline:3px solid var(--gold);outline-offset:2px}
+.nav-toggle:checked+.nav-toggle-label span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-toggle:checked+.nav-toggle-label span:nth-child(2){opacity:0}
+.nav-toggle:checked+.nav-toggle-label span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media print{.top,.actions,.skip-link,.scholar,.nav-toggle,.nav-toggle-label{display:none!important}.section{padding:18px 0}.hero-inner{padding:0 0 18px;display:block}.hero-image{transform:none;box-shadow:none;margin-top:14px}.card,.objective,.step,.gallery figure,.mentor-card{break-inside:avoid;box-shadow:none}.gallery{grid-template-columns:1fr 1fr}.notice{break-inside:avoid}body{font-size:11pt;line-height:1.45}a[href^="http"]::after{content:" (" attr(href) ")";font-size:.72em;color:#555;word-break:break-all}.refs a::after{content:""}.footer{background:#fff;color:#111}}
 </style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="top">
  <div class="wrap nav">
-  <a class="brand" href="#home"><span class="brand-mark">L</span><span>LIGNIN BIO-ADDITIVE RESEARCH</span></a>
-  <nav class="navlinks" aria-label="Main navigation"><a href="#overview">Overview</a><a href="#objectives">Objectives</a><a href="#workflow">Methodology</a><a href="#visuals">Visuals</a><a href="#team">Team &amp; Mentor</a><a href="#references">References</a></nav>
+  <a class="brand" href="#home"><span class="brand-mark" aria-hidden="true">L</span><span>LIGNIN BIO-ADDITIVE RESEARCH</span></a>
+  <input type="checkbox" id="nav-toggle" class="nav-toggle">
+  <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation menu"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span></label>
+  <nav class="navlinks" aria-label="Main navigation"><a href="#overview">Overview</a><a href="#objectives">Objectives</a><a href="#workflow">Methodology</a><a href="#visuals">Visuals</a><a href="#status">Results</a><a href="#team">Team &amp; Mentor</a><a href="#references">References</a><a href="#acknowledgements">Acknowledgements</a></nav>
  </div>
 </header>
 <main id="main">
 <section class="hero" id="home"><div class="wrap hero-inner">
  <div>
-  <div class="eyebrow"><span class="dot"></span> Bioenergy &amp; Waste-to-Energy · Student research</div>
+  <div class="eyebrow"><span class="dot" aria-hidden="true"></span> Bioenergy &amp; Waste-to-Energy · Student research</div>
   <h1>Extraction and Utilisation of Lignin as Bio-Additive in a Compression Ignition Engine Fuelled with Diesel Fuel</h1>
   <p>An experimental research project exploring lignin extraction, controlled pyrolysis, bio-additive characterization, diesel blending and compression-ignition engine evaluation.</p>
   <div class="meta"><span class="tag">Kalasalingam Academy of Research and Education</span><span class="tag">Interdisciplinary team</span><span class="tag">Planned blend limit: 20%</span></div>
   <div class="actions"><a class="btn btn-primary" href="#workflow">Explore methodology ↓</a><a class="btn btn-secondary" href="#team">Meet the research team</a></div>
  </div>
-  <div class="hero-image"><picture><source srcset="assets/full-research-workflow.webp" type="image/webp"><img src="assets/full-research-workflow.png" width="1600" height="640" fetchpriority="high" decoding="async" alt="Illustrative workflow showing biomass, lignin extraction, pyrolysis, diesel blending and CI engine testing"></picture><div class="caption">Research workflow illustration. The exact steps must follow the approved experimental protocol.</div></div>
+  <div class="hero-image"><picture><source type="image/webp" srcset="assets/full-research-workflow-600.webp 600w, assets/full-research-workflow-1000.webp 1000w, assets/full-research-workflow-1600.webp 1600w" sizes="(max-width:900px) 92vw, 40vw"><img src="assets/full-research-workflow.png" width="1600" height="640" fetchpriority="high" decoding="async" alt="Illustrative workflow showing biomass, lignin extraction, pyrolysis, diesel blending and CI engine testing"></picture><div class="caption">Research workflow illustration. The exact steps must follow the approved experimental protocol.</div></div>
 </div></section>
 
 <section class="section" id="overview"><div class="wrap">
  <div class="section-head"><div class="kicker">01 · Overview</div><h2>Turning biomass lignin into a fuel research question</h2><p class="lead">Lignin is a carbon-rich aromatic component of plant biomass. This project will investigate whether lignin-derived pyrolysis liquid can be assessed as a bio-additive in diesel blends, with suitability determined through fuel-property and engine testing.</p></div>
  <div class="grid">
-  <article class="card"><div class="number">A</div><h3>The challenge</h3><p>Diesel engines depend on petroleum-based fuels. Alternative components require careful assessment of physicochemical properties, compatibility, combustion and emissions.</p></article>
-  <article class="card"><div class="number">B</div><h3>The approach</h3><p>Connect lignin extraction and controlled pyrolysis with liquid-product characterization, selected diesel-blend preparation and comparative CI-engine evaluation.</p></article>
-  <article class="card"><div class="number">C</div><h3>The potential</h3><p>Explore a value-added use for biomass-derived lignin while making no assumptions about engine benefits before experimental evidence is available.</p></article>
+  <article class="card"><div class="number" aria-hidden="true">A</div><h3>The challenge</h3><p>Diesel engines depend on petroleum-based fuels. Alternative components require careful assessment of physicochemical properties, compatibility, combustion and emissions.</p></article>
+  <article class="card"><div class="number" aria-hidden="true">B</div><h3>The approach</h3><p>Connect lignin extraction and controlled pyrolysis with liquid-product characterization, selected diesel-blend preparation and comparative CI-engine evaluation.</p></article>
+  <article class="card"><div class="number" aria-hidden="true">C</div><h3>The potential</h3><p>Explore a value-added use for biomass-derived lignin while making no assumptions about engine benefits before experimental evidence is available.</p></article>
  </div>
 </div></section>
 
@@ -90,10 +111,10 @@
 <section class="section alt" id="visuals"><div class="wrap">
  <div class="section-head"><div class="kicker">04 · Research visuals</div><h2>Visual overview of the research</h2><p class="lead">These illustrations help explain the feedstock concept and process. Replace generic biomass examples with the actual selected feedstock, and use measured data for any final results charts.</p></div>
  <div class="gallery">
-  <figure><picture><source srcset="assets/biomass-feedstock.webp" type="image/webp"><img src="assets/biomass-feedstock.png" width="1600" height="569" loading="lazy" decoding="async" alt="Illustration of rice straw, corn stover, sugarcane bagasse, wood chips and sawdust"></picture><figcaption><strong>Biomass feedstock concept.</strong> Generic examples only; the team's actual selected biomass must be confirmed.</figcaption></figure>
-  <figure><picture><source srcset="assets/methodology-portrait.webp" type="image/webp"><img src="assets/methodology-portrait.png" width="1000" height="1333" loading="lazy" decoding="async" alt="Illustrative research poster workflow showing biomass, extraction, pyrolysis, fuel characterization and engine testing"></picture><figcaption><strong>Methodology reference illustration.</strong> Use only the steps and species that match the actual protocol.</figcaption></figure>
-  <figure><picture><source srcset="assets/full-research-workflow.webp" type="image/webp"><img src="assets/full-research-workflow.png" width="1600" height="640" loading="lazy" decoding="async" alt="Full workflow from biomass to lignin-derived liquid, diesel blends and engine evaluation"></picture><figcaption><strong>Full research workflow.</strong> Conceptual summary of the proposed process.</figcaption></figure>
-  <figure><picture><source srcset="assets/results-layout-illustrative-only.webp" type="image/webp"><img src="assets/results-layout-illustrative-only.png" width="941" height="1672" loading="lazy" decoding="async" alt="Illustrative results infographic layout with example charts and tables"></picture><figcaption><strong>Results layout reference — illustrative only.</strong> Its sample numerical values and graphs are not the team's data and must not be presented as findings.</figcaption></figure>
+  <figure><picture><source type="image/webp" srcset="assets/biomass-feedstock-600.webp 600w, assets/biomass-feedstock-1000.webp 1000w, assets/biomass-feedstock-1600.webp 1600w" sizes="(max-width:600px) 92vw, 49vw"><img src="assets/biomass-feedstock.png" width="1600" height="569" loading="lazy" decoding="async" alt="Illustration of rice straw, corn stover, sugarcane bagasse, wood chips and sawdust"></picture><figcaption><strong>Biomass feedstock concept.</strong> Generic examples only; the team's actual selected biomass must be confirmed.</figcaption></figure>
+  <figure><picture><source type="image/webp" srcset="assets/methodology-portrait-400.webp 400w, assets/methodology-portrait-700.webp 700w, assets/methodology-portrait-1000.webp 1000w" sizes="(max-width:600px) 92vw, 49vw"><img src="assets/methodology-portrait.png" width="1000" height="1333" loading="lazy" decoding="async" alt="Illustrative research poster workflow showing biomass, extraction, pyrolysis, fuel characterization and engine testing"></picture><figcaption><strong>Methodology reference illustration.</strong> Use only the steps and species that match the actual protocol.</figcaption></figure>
+  <figure><picture><source type="image/webp" srcset="assets/full-research-workflow-600.webp 600w, assets/full-research-workflow-1000.webp 1000w, assets/full-research-workflow-1600.webp 1600w" sizes="(max-width:600px) 92vw, 49vw"><img src="assets/full-research-workflow.png" width="1600" height="640" loading="lazy" decoding="async" alt="Full workflow from biomass to lignin-derived liquid, diesel blends and engine evaluation"></picture><figcaption><strong>Full research workflow.</strong> Conceptual summary of the proposed process.</figcaption></figure>
+  <figure><picture><source type="image/webp" srcset="assets/results-layout-illustrative-only-400.webp 400w, assets/results-layout-illustrative-only-700.webp 700w, assets/results-layout-illustrative-only-941.webp 941w" sizes="(max-width:600px) 92vw, 49vw"><img src="assets/results-layout-illustrative-only.png" width="941" height="1672" loading="lazy" decoding="async" alt="Illustrative results infographic layout with example charts and tables"></picture><figcaption><strong>Results layout reference — illustrative only.</strong> Its sample numerical values and graphs are not the team's data and must not be presented as findings.</figcaption></figure>
  </div>
 </div></section>
 
@@ -111,9 +132,9 @@
  <div class="section-head"><div class="kicker">06 · People behind the project</div><h2>Research team &amp; mentor</h2><p class="lead">Kalasalingam Academy of Research and Education (KARE), Krishnankoil, Tamil Nadu, India.</p></div>
  <div class="team-grid">
   <div class="card">
-   <div class="person"><div class="avatar">SV</div><div><h3>Srinath Vatchavari Venkateshan</h3><p>First-year student · Department of Mechanical Engineering</p><a class="contact" href="mailto:9926009061@klu.ac.in">9926009061@klu.ac.in</a></div></div>
-   <div class="person"><div class="avatar">AS</div><div><h3>Aarya Brat Shankar</h3><p>First-year student · Department of Biotechnology</p><a class="contact" href="mailto:9926001001@klu.ac.in">9926001001@klu.ac.in</a></div></div>
-   <div class="person" style="border-bottom:0"><div class="avatar">RB</div><div><h3>R. Bhuvaneshwaran</h3><p>First-year student · Department of Electrical and Electronics Engineering (EEE)</p><a class="contact" href="mailto:9926006025@klu.ac.in">9926006025@klu.ac.in</a></div></div>
+   <div class="person"><div class="avatar" aria-hidden="true">SV</div><div><h3>Srinath Vatchavari Venkateshan</h3><p>First-year student · Department of Mechanical Engineering</p><a class="contact" href="mailto:9926009061&#64;klu&#46;ac&#46;in">9926009061&#64;klu&#46;ac&#46;in</a></div></div>
+   <div class="person"><div class="avatar" aria-hidden="true">AS</div><div><h3>Aarya Brat Shankar</h3><p>First-year student · Department of Biotechnology</p><a class="contact" href="mailto:9926001001&#64;klu&#46;ac&#46;in">9926001001&#64;klu&#46;ac&#46;in</a></div></div>
+   <div class="person" style="border-bottom:0"><div class="avatar" aria-hidden="true">RB</div><div><h3>R. Bhuvaneshwaran</h3><p>First-year student · Department of Electrical and Electronics Engineering (EEE)</p><a class="contact" href="mailto:9926006025&#64;klu&#46;ac&#46;in">9926006025&#64;klu&#46;ac&#46;in</a></div></div>
   </div>
   <aside class="mentor-card">
    <div class="eyebrow">Project mentor</div>
@@ -121,7 +142,7 @@
    <p><strong>Associate Professor</strong></p>
    <p>Department of Mechanical Engineering</p>
    <p>Kalasalingam Academy of Research and Education</p>
-   <p style="margin-top:14px"><a href="mailto:gowthaman.s@klu.ac.in">gowthaman.s@klu.ac.in</a></p>
+   <p style="margin-top:14px"><a href="mailto:gowthaman&#46;s&#64;klu&#46;ac&#46;in">gowthaman&#46;s&#64;klu&#46;ac&#46;in</a></p>
    <a class="scholar" href="https://scholar.google.com/citations?hl=en&user=ZaxR-vAAAAAJ&view_op=list_works" target="_blank" rel="noopener">View Google Scholar ↗</a>
   </aside>
  </div>
@@ -134,6 +155,11 @@
   <li>Yang, H., Yan, R., Chen, H., Lee, D. H., &amp; Zheng, C. (2007). “Characteristics of hemicellulose, cellulose and lignin pyrolysis.” <em>Fuel</em>, 86(12–13), 1781–1788. <a href="https://doi.org/10.1016/j.fuel.2006.12.013" target="_blank" rel="noopener">DOI</a></li>
   <li>Leng, L., Li, H., Yuan, X., Zhou, W., &amp; Huang, H. (2018). “Bio-oil upgrading by emulsification/microemulsification: A review.” <em>Energy</em>, 161, 214–232. <a href="https://doi.org/10.1016/j.energy.2018.07.117" target="_blank" rel="noopener">DOI</a></li>
   <li>Panchasara, H., &amp; Ashwath, N. (2021). “Effects of Pyrolysis Bio-Oils on Fuel Atomisation—A Review.” <em>Energies</em>, 14(4), 794. <a href="https://doi.org/10.3390/en14040794" target="_blank" rel="noopener">DOI</a></li>
+  <li>Bridgwater, A. V. (2012). “Review of fast pyrolysis of biomass and product upgrading.” <em>Biomass and Bioenergy</em>, 38, 68–94. <a href="https://doi.org/10.1016/j.biombioe.2011.01.048" target="_blank" rel="noopener">DOI</a></li>
+  <li>Czernik, S., &amp; Bridgwater, A. V. (2004). “Overview of applications of biomass fast pyrolysis oil.” <em>Energy &amp; Fuels</em>, 18(2), 590–598. <a href="https://doi.org/10.1021/ef034067u" target="_blank" rel="noopener">DOI</a></li>
+  <li>Pandey, M. P., &amp; Kim, C. S. (2011). “Lignin depolymerization and conversion: a review of thermochemical methods.” <em>Chemical Engineering &amp; Technology</em>, 34(1), 29–41. <a href="https://doi.org/10.1002/ceat.201000270" target="_blank" rel="noopener">DOI</a></li>
+  <li>Dhyani, V., &amp; Bhaskar, T. (2018). “A comprehensive review on the pyrolysis of lignocellulosic biomass.” <em>Renewable Energy</em>, 129, 695–716. <a href="https://doi.org/10.1016/j.renene.2017.04.035" target="_blank" rel="noopener">DOI</a></li>
+  <li>Liu, C., Wang, H., Karim, A. M., Sun, J., &amp; Wang, Y. (2014). “Catalytic fast pyrolysis of lignocellulosic biomass.” <em>Chemical Society Reviews</em>, 43(22), 7594–7623. <a href="https://doi.org/10.1039/C3CS60414D" target="_blank" rel="noopener">DOI</a></li>
  </ol>
  <p class="small">Verify every citation against the original publication before formal submission.</p>
 </div></section>
@@ -155,9 +181,9 @@
     "name": "Kalasalingam Academy of Research and Education"
   },
   "member": [
-    { "@type": "Person", "name": "Srinath Vatchavari Venkateshan", "email": "9926009061@klu.ac.in" },
-    { "@type": "Person", "name": "Aarya Brat Shankar", "email": "9926001001@klu.ac.in" },
-    { "@type": "Person", "name": "R. Bhuvaneshwaran", "email": "9926006025@klu.ac.in" }
+    { "@type": "Person", "name": "Srinath Vatchavari Venkateshan" },
+    { "@type": "Person", "name": "Aarya Brat Shankar" },
+    { "@type": "Person", "name": "R. Bhuvaneshwaran" }
   ]
 }
 </script>

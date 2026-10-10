@@ -1,8 +1,11 @@
-LIGNIN BIO-ADDITIVE RESEARCH WEBSITE — VERSION 3
+LIGNIN BIO-ADDITIVE RESEARCH WEBSITE — VERSION 4
 
 Included:
 - index.html: professional, responsive research website (single page)
-- assets/: project images (WebP + PNG fallbacks) and an SVG favicon
+- 404.html: themed "page not found" page (served automatically by Netlify)
+- assets/: responsive images (WebP at 3 widths + PNG fallback), SVG/ICO
+  favicons and 192/512 px app icons
+- manifest.webmanifest: installable web-app metadata
 - netlify.toml: Netlify build, security headers and caching configuration
 - robots.txt, sitemap.xml: search-engine basics
 - README.txt: this file
@@ -35,11 +38,20 @@ Alternatively, from a terminal with the Netlify CLI installed:
 ========================================================================
 AFTER THE FIRST DEPLOY — REPLACE PLACEHOLDERS
 ========================================================================
-1. sitemap.xml and robots.txt contain https://YOUR-SITE.netlify.app/
-   Replace that placeholder with your real Netlify URL.
-2. In index.html, update the og:image / twitter:image values to the full
-   live URL (e.g. https://your-site.netlify.app/assets/full-research-workflow.png)
-   so social previews render correctly.
+Replace https://YOUR-SITE.netlify.app/ with your real Netlify URL in:
+1. sitemap.xml and robots.txt
+2. index.html <head>: <link rel="canonical">, <meta property="og:url">,
+   og:image and twitter:image (absolute URLs are required for social
+   previews to render).
+Search for "YOUR-SITE" to find every occurrence.
+
+========================================================================
+OPTIONAL — ANALYTICS
+========================================================================
+- Easiest: Netlify dashboard > Site configuration > Analytics > Enable
+  (server-side, no code change, privacy-friendly).
+- Or paste a privacy-friendly snippet (e.g. Plausible, GoatCounter) where
+  the comment marker is in index.html <head>.
 
 ========================================================================
 IMPORTANT CONTENT NOTES
@@ -56,8 +68,11 @@ IMPORTANT CONTENT NOTES
 ========================================================================
 PERFORMANCE / MAINTENANCE NOTES
 ========================================================================
-- Images ship as WebP with compressed PNG fallbacks via <picture>, which
-  cut asset weight from ~8 MB to ~0.7 MB on modern browsers.
+- Images ship as WebP at 3 widths (with a compressed PNG fallback) via
+  <picture>/srcset, cutting asset weight from ~8 MB to well under 1 MB
+  and letting phones download smaller variants.
 - Assets are cached for one year (immutable); index.html is always
   revalidated. If you edit an image but keep the same filename, rename the
   file (e.g. add a version suffix) so the CDN serves the new copy.
+- The mobile navigation is a CSS-only hamburger (no JavaScript), and the
+  page has a print stylesheet for poster/handout use.
