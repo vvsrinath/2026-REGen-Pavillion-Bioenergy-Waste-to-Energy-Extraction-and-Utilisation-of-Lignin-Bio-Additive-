@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, follow">
-<meta name="theme-color" content="#06110e">
+<meta name="theme-color" content="#ffffff">
 <title>Page not found | REGen Pavilion</title>
 <link rel="icon" href="/assets/favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <style>
 :root{
-  --bg:#06110e;--panel:#10251f;--accent:#43e69a;--accent2:#8bf5c1;
-  --cyan:#63d8d1;--amber:#e9aa56;--text:#f4faf6;--text2:#b3c5bc;--muted:#82988d;
+  --bg:#ffffff;--panel:rgba(255,255,255,.86);--accent:#22c55e;--accent2:#16a34a;
+  --cyan:#22d3ee;--amber:#f59e0b;--text:#10251f;--text2:#3f544d;--muted:#5f7068;
 }
 *{box-sizing:border-box}
 body{
@@ -19,39 +19,39 @@ body{
   color:var(--text);
   font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   background:
-    radial-gradient(ellipse 60% 50% at 85% 0%,rgba(67,230,154,.16),transparent 60%),
-    radial-gradient(ellipse 55% 45% at 0% 100%,rgba(99,216,209,.12),transparent 60%),
-    linear-gradient(160deg,var(--bg),#081713 55%,#050d0b);
+    radial-gradient(ellipse 60% 50% at 85% 0%,rgba(34,197,94,.12),transparent 60%),
+    radial-gradient(ellipse 55% 45% at 0% 100%,rgba(34,211,238,.10),transparent 60%),
+    linear-gradient(160deg,#ffffff,#f7fbf9 60%,#ffffff);
   -webkit-font-smoothing:antialiased;
 }
 .card{
   position:relative;width:min(580px,100%);padding:clamp(30px,6vw,52px);
   text-align:center;border-radius:26px;
-  background:rgba(12,35,28,.62);
-  border:1px solid rgba(255,255,255,.11);
-  box-shadow:0 30px 80px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.06);
+  background:linear-gradient(155deg,rgba(255,255,255,.92),rgba(248,251,249,.86));
+  border:1px solid rgba(16,37,31,.12);
+  box-shadow:0 40px 80px -50px rgba(16,37,31,.5),inset 0 1px 0 rgba(255,255,255,.9);
   backdrop-filter:blur(18px) saturate(140%);
   -webkit-backdrop-filter:blur(18px) saturate(140%);
   overflow:hidden;
 }
 .card::before{
   content:"";position:absolute;inset:-40% 40% 60% -30%;pointer-events:none;
-  background:radial-gradient(circle,rgba(67,230,154,.22),transparent 65%);
+  background:radial-gradient(circle,rgba(34,197,94,.16),transparent 65%);
   filter:blur(20px);
 }
 .mark{
   position:relative;display:grid;place-items:center;width:62px;height:62px;
-  margin:0 auto 20px;border-radius:18px;color:#04120d;font-size:1.7rem;font-weight:800;
-  background:linear-gradient(140deg,#5cf0ac,#1f9a66);
-  box-shadow:0 10px 26px rgba(46,205,140,.35);
+  margin:0 auto 20px;border-radius:18px;color:#fff;font-size:1.7rem;font-weight:800;
+  background:linear-gradient(140deg,#22c55e,#16a34a);
+  box-shadow:0 14px 30px rgba(34,197,94,.28);
 }
 .mark::after{
   content:"";position:absolute;top:-4px;right:-4px;width:12px;height:12px;
-  border-radius:50%;background:var(--amber);box-shadow:0 0 0 4px rgba(6,17,14,.8);
+  border-radius:50%;background:var(--amber);box-shadow:0 0 0 4px rgba(255,255,255,.9);
 }
 .code{
   position:relative;font-size:.76rem;letter-spacing:.22em;text-transform:uppercase;
-  color:var(--accent);font-weight:800;
+  color:var(--accent2);font-weight:800;
 }
 h1{
   position:relative;font-size:clamp(1.8rem,5vw,2.5rem);letter-spacing:-.03em;
@@ -64,16 +64,16 @@ p{position:relative;color:var(--text2);margin:0 auto 28px;max-width:42ch;line-he
   font-size:.93rem;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
 }
 .primary{
-  color:#04120d;background:linear-gradient(135deg,#8bf5c1,#43e69a);
-  box-shadow:0 12px 30px rgba(67,230,154,.28);
+  color:#fff;background:linear-gradient(135deg,#22c55e,#16a34a);
+  box-shadow:0 12px 30px rgba(34,197,94,.26);
 }
 .secondary{
-  color:var(--text);border:1px solid rgba(255,255,255,.16);
-  background:rgba(255,255,255,.03);
+  color:var(--text);border:1px solid rgba(16,37,31,.16);
+  background:rgba(255,255,255,.8);
 }
 .btn:hover{transform:translateY(-2px)}
-.secondary:hover{border-color:rgba(67,230,154,.5)}
-.btn:focus-visible{outline:2px solid var(--accent2);outline-offset:3px}
+.secondary:hover{border-color:rgba(34,197,94,.5)}
+.btn:focus-visible{outline:2px solid rgba(245,158,11,.7);outline-offset:3px}
 @media (prefers-reduced-motion:reduce){.btn{transition:none}.btn:hover{transform:none}}
 </style>
 </head>
