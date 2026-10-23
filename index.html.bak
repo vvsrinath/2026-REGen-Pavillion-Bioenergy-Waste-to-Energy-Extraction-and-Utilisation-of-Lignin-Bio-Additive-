@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="REGen Pavilion — KARE student research project investigating lignin-derived bio-additives for diesel fuel and compression-ignition engine evaluation.">
+<meta name="theme-color" content="#06110E">
+<meta name="robots" content="index, follow">
+<title>REGen Pavilion | Extraction and Utilisation of Lignin as a Bio-Additive</title>
+<link rel="canonical" href="https://YOUR-SITE.netlify.app/">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="REGen Pavilion — Lignin Bio-Additive Research">
+<meta property="og:url" content="https://YOUR-SITE.netlify.app/">
+<meta property="og:title" content="REGen Pavilion — Transforming Biomass into Value">
+<meta property="og:description" content="KARE student research project investigating lignin-derived bio-additives for diesel fuel and compression-ignition engine evaluation.">
+<meta property="og:image" content="https://YOUR-SITE.netlify.app/assets/full-research-workflow.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="Illustrative research workflow from biomass to lignin bio-additive and CI engine evaluation">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="REGen Pavilion — Transforming Biomass into Value">
+<meta name="twitter:description" content="KARE student research project investigating lignin-derived bio-additives for diesel fuel and compression-ignition engine evaluation.">
+<meta name="twitter:image" content="https://YOUR-SITE.netlify.app/assets/full-research-workflow.png">
+<meta name="twitter:image:alt" content="Illustrative research workflow from biomass to lignin bio-additive and CI engine evaluation">
+<!-- Optional analytics: enable Netlify Analytics in the dashboard, or paste a privacy-friendly snippet here. See README.txt. -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "assets/vendor/three.module.js",
+        "three/addons/": "assets/vendor/addons/"
+      }
+    }
+  </script>
+  <script src="assets/site.js"></script>
+  <script type="module" src="assets/hero3d.js"></script>
+<style>
+:root{
+  --color-bg:#06110E;
+  --color-bg-secondary:#091A16;
+  --color-surface:#10251F;
+  --color-surface-elevated:#15352A;
+  --color-primary:#43E69A;
+  --color-primary-light:#8BF5C1;
+  --color-secondary:#63D8D1;
+  --color-amber:#E9AA56;
+  --color-text:#F4FAF6;
+  --color-text-secondary:#B3C5BC;
+  --color-text-muted:#82988D;
+  --color-border:rgba(255,255,255,0.12);
+  --bg:var(--color-bg);
+  --bg2:var(--color-bg-secondary);
+  --panel:var(--color-surface);
+  --accent:var(--color-primary);
+  --accent2:var(--color-primary-light);
+  --cyan:var(--color-secondary);
+  --amber:var(--color-amber);
+  --text:var(--color-text);
+  --text2:var(--color-text-secondary);
+  --muted:var(--color-text-muted);
+  --glass:rgba(10,32,25,0.62);
+  --glass-strong:rgba(9,26,22,0.86);
+  --gb:var(--color-border);
+  --radius:20px;
+  --wrap:1280px;
+  --ease:cubic-bezier(.25,.8,.25,1);
+  --shadow:0 30px 70px -40px rgba(0,0,0,0.95);
+  --glow:0 0 0 1px rgba(67,230,154,0.18),0 20px 50px -24px rgba(67,230,154,0.25)
+ }
+*{box-sizing:border-box}
+body.nav-open{overflow:hidden}
+html{scroll-behavior:smooth;scroll-padding-top:120px;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:Inter,Manrope,"Plus Jakarta Sans",ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:var(--text);background:var(--bg);line-height:1.7;font-size:16px;overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{max-width:100%;display:block;height:auto}
+a{color:var(--accent2);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:2px}
+p a{text-decoration:underline;text-underline-offset:2px}
+::selection{background:rgba(67,230,154,.35);color:#fff}
+.skip-link{position:fixed;left:-9999px;top:0;z-index:200;background:var(--accent);color:#04120d;padding:12px 18px;border-radius:0 0 10px 0;font-weight:700}
+.skip-link:focus{left:0}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:8px}
+
+/* backdrop */
+.bg{position:fixed;inset:0;z-index:-3;pointer-events:none;background:
+  radial-gradient(1200px 800px at 80% -10%,rgba(67,230,154,.18),transparent 60%),
+  radial-gradient(900px 700px at 10% 0%,rgba(99,216,209,.14),transparent 62%),
+  radial-gradient(1100px 900px at 60% 120%,rgba(233,170,86,.10),transparent 64%),
+  linear-gradient(180deg,#06110E 0%,#081713 50%,#06110E 100%)}
+.bg::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:80px 80px;-webkit-mask-image:radial-gradient(ellipse 85% 65% at 50% 15%,#000,transparent 80%);mask-image:radial-gradient(ellipse 85% 65% at 50% 15%,#000,transparent 80%)}
+
+.glass-panel{background:rgba(10,32,25,0.62);backdrop-filter:blur(20px) saturate(140%);-webkit-backdrop-filter:blur(20px) saturate(140%);border:1px solid rgba(255,255,255,0.12);box-shadow:0 12px 40px rgba(0,0,0,0.22),inset 0 1px 0 rgba(255,255,255,0.06)}
+.glass-elevated{background:rgba(12,36,28,0.72);backdrop-filter:blur(22px) saturate(150%);-webkit-backdrop-filter:blur(22px) saturate(150%);border:1px solid rgba(255,255,255,0.14);box-shadow:0 18px 60px rgba(0,0,0,0.28),inset 0 1px 0 rgba(255,255,255,0.08)}
+.glass-subtle{background:rgba(10,32,25,0.48);backdrop-filter:blur(16px) saturate(135%);-webkit-backdrop-filter:blur(16px) saturate(135%);border:1px solid rgba(255,255,255,0.10);box-shadow:0 10px 40px rgba(0,0,0,0.18),inset 0 1px 0 rgba(255,255,255,0.05)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.glass-panel,.glass-elevated,.glass-subtle{background:rgba(12,35,28,0.94)}}
+
+/* header */
+.top{position:sticky;top:0;z-index:80;padding:16px 0;transition:padding .25s var(--ease)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:10px 14px 10px 18px;border-radius:999px;background:rgba(10,32,25,0.62);backdrop-filter:blur(20px) saturate(140%);-webkit-backdrop-filter:blur(20px) saturate(140%);border:1px solid rgba(255,255,255,0.12);box-shadow:0 20px 60px -30px rgba(0,0,0,0.9);transition:background .25s var(--ease),border-color .25s var(--ease),box-shadow .25s var(--ease)}
+.top.scrolled .nav{background:rgba(9,26,22,0.86);border-color:rgba(255,255,255,0.16);box-shadow:0 24px 70px -30px rgba(0,0,0,0.95)}
+.brand{display:flex;align-items:center;gap:12px;color:var(--text);flex-shrink:0}
+.brand:hover{text-decoration:none}
+.brand-logo{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(145deg,#43E69A,#1f9a66);color:#04120d;font-weight:900;font-size:1.08rem;box-shadow:0 0 26px rgba(67,230,154,0.38)}
+.brand-name{font-weight:800;font-size:1rem;line-height:1.1;letter-spacing:-.01em;display:block}
+.brand-sub{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);display:block;margin-top:2px}
+.navlinks{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.navlinks a{color:var(--text2);font-size:.88rem;font-weight:550;padding:9px 14px;border-radius:999px;transition:color .2s var(--ease),background .2s var(--ease)}
+.navlinks a:hover{color:#fff;background:rgba(255,255,255,0.06);text-decoration:none}
+.navlinks a.active{color:var(--accent2);background:rgba(67,230,154,0.14)}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:999px;background:linear-gradient(135deg,#8BF5C1,#43E69A);color:#04120d!important;font-weight:700;font-size:.88rem;white-space:nowrap;box-shadow:0 12px 30px -14px rgba(67,230,154,0.8);transition:transform .2s var(--ease),box-shadow .2s var(--ease)}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 18px 40px -12px rgba(67,230,154,0.9);text-decoration:none}
+.nav-toggle{display:none;width:46px;height:44px;border-radius:999px;border:1px solid rgba(255,255,255,0.18);background:rgba(255,255,255,0.05);cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px;padding:0}
+.nav-toggle span{display:block;width:19px;height:2px;background:#fff;border-radius:2px;transition:transform .22s var(--ease),opacity .22s var(--ease)}
+.nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+.nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* hero */
+.hero{position:relative;padding:clamp(46px,6.5vw,92px) 0 clamp(44px,6vw,84px)}
+.hero-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:clamp(30px,5vw,66px);align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent2);background:rgba(67,230,154,.12);border:1px solid rgba(67,230,154,.28);border-radius:999px;padding:8px 16px}
+.eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 14px rgba(67,230,154,.9);animation:pulse 3s var(--ease) infinite}
+h1{font-size:clamp(2.35rem,5.4vw,4.3rem);line-height:1.03;letter-spacing:-.045em;margin:22px 0 16px;font-weight:800}
+.hero-title-sub{font-size:clamp(1rem,2.1vw,1.32rem);font-weight:650;color:var(--accent2);letter-spacing:-.01em;margin:0 0 16px;line-height:1.35}
+.hero p.lead{color:var(--text2);font-size:clamp(1rem,1.5vw,1.1rem);max-width:610px;margin:0}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.pill{font-size:.76rem;color:var(--text2);border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);border-radius:999px;padding:6px 12px}
+
+.btn{display:inline-flex;align-items:center;gap:9px;border-radius:12px;padding:13px 20px;font-weight:700;font-size:.92rem;border:1px solid transparent;cursor:pointer;transition:transform .2s var(--ease),box-shadow .2s var(--ease),background .2s var(--ease),border-color .2s var(--ease)}
+.btn:hover{text-decoration:none}
+.btn-primary{background:linear-gradient(135deg,#4ff0a6,#34c98a);color:#04120d;box-shadow:0 14px 34px -14px rgba(67,230,154,.7)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 20px 40px -14px rgba(67,230,154,.85)}
+.btn-glass{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:var(--text);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.btn-glass:hover{background:rgba(255,255,255,.15);border-color:rgba(67,230,154,.45);transform:translateY(-2px)}
+.btn-sm{padding:10px 15px;font-size:.85rem}
+
+/* hero stage (deprecated, removed) */
+
+/* sections */
+.section{padding:clamp(70px,9vw,120px) 0;position:relative}
+.section.alt{background:linear-gradient(180deg,rgba(16,37,31,.4),rgba(9,26,22,.14));border-block:1px solid rgba(255,255,255,.05)}
+.section-head{max-width:720px;margin-bottom:clamp(30px,4vw,50px)}
+.kicker{display:inline-flex;align-items:center;gap:9px;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--accent)}
+.kicker::before{content:"";width:22px;height:1px;background:var(--amber)}
+h2{font-size:clamp(1.7rem,3.4vw,2.6rem);letter-spacing:-.03em;line-height:1.1;margin:14px 0 12px;font-weight:800}
+.lead{color:var(--text2);font-size:1.02rem;margin:0}
+h3{font-weight:700}
+.small{font-size:.8rem;color:var(--muted)}
+
+.card{position:relative;padding:28px;border-radius:18px;background:linear-gradient(155deg,rgba(22,50,42,.62),rgba(9,26,22,.68));border:1px solid rgba(255,255,255,.12);-webkit-backdrop-filter:blur(15px) saturate(135%);backdrop-filter:blur(15px) saturate(135%);box-shadow:0 12px 40px rgba(0,0,0,0.22),inset 0 1px 0 rgba(255,255,255,.06);transition:transform .25s var(--ease),border-color .25s var(--ease),box-shadow .25s var(--ease)}
+.card:hover{transform:translateY(-4px);border-color:rgba(67,230,154,.32);box-shadow:var(--shadow),0 0 0 1px rgba(67,230,154,.14)}
+.card h3{font-size:1.06rem;margin:0 0 9px;letter-spacing:-.01em}
+.card p{color:var(--text2);font-size:.93rem;margin:0}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.num{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:11px;background:rgba(67,230,154,.1);color:var(--accent2);font-weight:800;border:1px solid rgba(67,230,154,.2);margin-bottom:16px}
+
+/* process */
+.process{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;position:relative}
+@media(min-width:1021px){.pstep:not(:nth-child(4n))::before{content:"";position:absolute;right:-10px;top:50%;width:7px;height:7px;border-top:1px solid rgba(67,230,154,.55);border-right:1px solid rgba(67,230,154,.55);transform:translateY(-50%) rotate(45deg);z-index:3;pointer-events:none}}
+.pstep{position:relative;overflow:hidden;padding:24px;border-radius:16px;background:linear-gradient(155deg,rgba(22,50,42,.58),rgba(9,26,22,.64));border:1px solid rgba(255,255,255,.10);-webkit-backdrop-filter:blur(14px) saturate(130%);backdrop-filter:blur(14px) saturate(130%);transition:transform .25s var(--ease),border-color .25s var(--ease),box-shadow .25s var(--ease)}
+.pstep:hover{transform:translateY(-4px);border-color:rgba(67,230,154,.34);box-shadow:0 24px 46px -30px #000,0 0 0 1px rgba(67,230,154,.12)}
+.pstep::after{content:"";position:absolute;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--accent),transparent);transition:width .35s var(--ease)}
+.pstep:hover::after{width:100%}
+.pstep .n{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.7rem;letter-spacing:.14em;color:var(--accent);font-weight:700}
+.pstep h3{font-size:.98rem;margin:10px 0 7px;line-height:1.3}
+.pstep p{font-size:.85rem;color:var(--muted);margin:0}
+.pstep .tag-status{display:inline-block;margin-top:13px;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);border:1px solid rgba(233,170,86,.24);background:rgba(233,170,86,.08);border-radius:999px;padding:3px 8px}
+.notice{display:flex;gap:12px;margin-top:24px;padding:17px 20px;border-radius:13px;background:rgba(233,170,86,.06);border:1px solid rgba(233,170,86,.2);border-left:3px solid var(--amber);color:#e8d3ae;font-size:.9rem}
+.notice strong{color:var(--amber)}
+
+/* abstract / research */
+.abstract{padding:clamp(24px,3.5vw,40px)}
+.abs-title{font-size:clamp(1.24rem,2.3vw,1.62rem);letter-spacing:-.02em;line-height:1.3;margin:0 0 12px;font-weight:800}
+.abs-authors{font-size:.95rem;color:var(--text);font-weight:650;margin:0 0 6px}
+.abs-affil{font-size:.82rem;color:var(--muted);margin:0 0 16px}
+.abs-tags{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 24px}
+.abs-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;border-top:1px solid rgba(255,255,255,.08);padding-top:24px}
+.abs-block{background:rgba(6,17,14,.4);border:1px solid rgba(255,255,255,.07);border-radius:13px;padding:18px}
+.abs-block h3{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 9px;font-weight:700}
+.abs-block p{margin:0;font-size:.9rem;color:var(--text2)}
+.keywords{margin:20px 0 0;font-size:.86rem;color:var(--muted)}
+.keywords b{color:var(--text)}
+.focus-grid{margin-top:26px}
+.focus{padding:22px;border-radius:15px;background:rgba(16,37,31,.03);border:1px solid rgba(255,255,255,.08)}
+.focus h3{font-size:.97rem;margin:0 0 7px}
+.focus p{font-size:.86rem;color:var(--muted);margin:0}
+.status-note{display:flex;gap:12px;margin-top:24px;padding:17px 20px;border-radius:13px;background:rgba(99,216,209,.05);border:1px solid rgba(99,216,209,.18);border-left:3px solid var(--cyan);color:#c7e9e6;font-size:.9rem}
+.status-note strong{color:var(--cyan)}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:30px}
+.gallery figure{margin:0;border-radius:15px;overflow:hidden;background:rgba(16,37,31,.03);border:1px solid rgba(255,255,255,.08);transition:transform .25s var(--ease),border-color .25s var(--ease)}
+.gallery figure:hover{transform:translateY(-3px);border-color:rgba(67,230,154,.28)}
+.gallery img{width:100%;background:#0a1a15}
+.gallery figcaption{padding:13px 16px;font-size:.83rem;color:var(--muted)}
+.gallery figcaption strong{color:var(--text)}
+
+/* impact */
+.impact-card .ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:rgba(67,230,154,.09);border:1px solid rgba(67,230,154,.18);margin-bottom:15px;color:var(--accent2)}
+.roadmap{margin-top:26px;padding:clamp(24px,3.4vw,36px);border-radius:18px;background:linear-gradient(155deg,rgba(22,50,42,.58),rgba(9,26,22,.64));border:1px solid rgba(255,255,255,.12);-webkit-backdrop-filter:blur(15px) saturate(135%);backdrop-filter:blur(15px) saturate(135%)}
+.roadmap h3{margin:0 0 16px;font-size:1.08rem}
+.roadmap ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.roadmap li{display:flex;gap:12px;align-items:flex-start;font-size:.9rem;color:var(--text2)}
+.roadmap li .rn{flex-shrink:0;width:24px;height:24px;border-radius:7px;display:grid;place-items:center;font-size:.72rem;font-weight:800;color:var(--accent2);background:rgba(67,230,154,.1);border:1px solid rgba(67,230,154,.18)}
+
+/* resources */
+.docs{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.doc-card{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:18px;border-radius:18px;background:linear-gradient(155deg,rgba(22,50,42,.6),rgba(9,26,22,.66));border:1px solid rgba(255,255,255,.12);-webkit-backdrop-filter:blur(14px) saturate(130%);backdrop-filter:blur(14px) saturate(130%);box-shadow:0 12px 40px rgba(0,0,0,0.22),inset 0 1px 0 rgba(255,255,255,.06);transition:transform .25s var(--ease),border-color .25s var(--ease)}
+.doc-card:hover{transform:translateY(-3px);border-color:rgba(67,230,154,.3)}
+.doc-thumb{position:relative;border-radius:11px;overflow:hidden;border:1px solid rgba(255,255,255,.1);background:#0a1a15;aspect-ratio:3/4}
+.doc-thumb img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.doc-thumb .doc-kind{position:absolute;left:8px;top:8px;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#04120d;background:var(--accent);border-radius:6px;padding:3px 7px}
+.doc-body{display:flex;flex-direction:column;justify-content:center;min-width:0}
+.doc-body .kicker{margin-bottom:8px}
+.doc-body h3{font-size:1.05rem;margin:0 0 7px;line-height:1.25}
+.doc-body p{font-size:.87rem;color:var(--muted);margin:0 0 14px}
+.doc-actions{display:flex;flex-wrap:wrap;gap:8px}
+.doc-meta{font-size:.74rem;color:var(--muted);margin-top:10px}
+
+/* team */
+.team-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.person{display:flex;gap:16px;align-items:flex-start;padding:26px;border-radius:18px;background:linear-gradient(155deg,rgba(22,50,42,.58),rgba(9,26,22,.64));border:1px solid rgba(255,255,255,.12);-webkit-backdrop-filter:blur(14px) saturate(130%);backdrop-filter:blur(14px) saturate(130%);box-shadow:0 12px 40px rgba(0,0,0,0.22),inset 0 1px 0 rgba(255,255,255,.06);transition:transform .25s var(--ease),border-color .25s var(--ease)}
+.person:hover{transform:translateY(-3px);border-color:rgba(67,230,154,.28)}
+.avatar{flex-shrink:0;width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-weight:800;color:var(--accent2);background:linear-gradient(145deg,rgba(67,230,154,.18),rgba(99,216,209,.08));border:1px solid rgba(67,230,154,.22)}
+.person h3{margin:0;font-size:1rem}
+.person .role{font-size:.83rem;color:var(--muted);margin:4px 0 0}
+.contact{display:inline-block;color:var(--accent2);font-size:.84rem;overflow-wrap:anywhere;margin-top:7px}
+.mentor-card{grid-column:1/-1;padding:30px;border-radius:18px;background:linear-gradient(150deg,rgba(67,230,154,.16),rgba(9,26,22,.78));border:1px solid rgba(67,230,154,.32);display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;align-items:center;position:relative;overflow:hidden;box-shadow:0 18px 60px rgba(0,0,0,0.28),inset 0 1px 0 rgba(255,255,255,.08)}
+.mentor-card::after{content:"";position:absolute;width:240px;height:240px;right:-70px;top:-80px;border-radius:50%;background:radial-gradient(circle,rgba(233,170,86,.22),transparent 70%);pointer-events:none}
+.mentor-card .m-label{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent2);font-weight:700}
+.mentor-card h3{font-size:1.24rem;margin:7px 0 3px}
+.mentor-card p{margin:2px 0;font-size:.87rem;color:var(--text2)}
+.mentor-card .m-actions{display:flex;flex-wrap:wrap;gap:10px;position:relative}
+
+/* references */
+.refs{list-style:none;margin:0;padding:0;counter-reset:ref;display:grid;gap:10px}
+.refs li{counter-increment:ref;position:relative;padding:14px 16px 14px 52px;border-radius:12px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);color:var(--text2);font-size:.88rem;overflow-wrap:anywhere}
+.refs li::before{content:counter(ref,decimal-leading-zero);position:absolute;left:16px;top:14px;font-family:ui-monospace,Menlo,monospace;font-size:.72rem;font-weight:700;color:var(--accent)}
+.refs li em{color:var(--text)}
+.refs li a{white-space:nowrap}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}
+.contact-panel{padding:clamp(24px,3.4vw,38px)}
+.contact-panel h3{font-size:1.2rem;margin:0 0 10px}
+.contact-panel p{color:var(--text2);font-size:.94rem;margin:0 0 14px}
+.contact-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.contact-list li{display:flex;flex-direction:column;gap:2px;padding:12px 0;border-top:1px solid rgba(255,255,255,.07)}
+.contact-list li:first-child{border-top:0;padding-top:0}
+.contact-list .cname{font-size:.92rem;font-weight:650;color:var(--text)}
+.contact-list a{font-size:.85rem;overflow-wrap:anywhere}
+
+/* footer */
+.footer{border-top:1px solid rgba(255,255,255,.08);padding:46px 0;background:linear-gradient(180deg,transparent,rgba(6,17,14,.8))}
+.footer-row{display:flex;justify-content:space-between;gap:26px;flex-wrap:wrap}
+.footer .brand-name{font-size:1rem}
+.footer p{margin:7px 0;color:var(--muted);font-size:.84rem}
+.footer a{color:var(--text2)}
+.footer a:hover{color:var(--accent2)}
+
+/* reveal + motion */
+.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.js .reveal.in{opacity:1;transform:none}
+.js .reveal.d1{transition-delay:.07s}.js .reveal.d2{transition-delay:.14s}.js .reveal.d3{transition-delay:.21s}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+@keyframes breathe{0%,100%{opacity:.75;transform:scale(1)}50%{opacity:1;transform:scale(1.04)}}
+
+/* responsive */
+@media(max-width:1020px){
+  .nav{flex-wrap:wrap;position:relative;border-radius:18px}
+  .js .nav-toggle{display:inline-flex}
+  .nav-cta{display:none}
+  html:not(.js) .navlinks{width:100%;justify-content:center;flex-wrap:wrap}
+  .js   .navlinks{display:none;position:absolute;left:0;right:0;top:calc(100% + 12px);flex-direction:column;align-items:stretch;gap:4px;padding:12px;border-radius:18px;background:rgba(9,26,22,.92);border:1px solid rgba(255,255,255,.16);-webkit-backdrop-filter:blur(22px);backdrop-filter:blur(22px);box-shadow:0 40px 70px -30px rgba(0,0,0,.95);z-index:70}
+  .js .navlinks.open{display:flex}
+ .navlinks a{padding:12px 14px;font-size:.94rem;border-radius:10px}
+ .hero-grid{grid-template-columns:1fr;gap:40px}
+ .process{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .contact-grid{grid-template-columns:1fr}
+ .docs{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+ .grid-3,.grid-2,.abs-grid,.roadmap ol,.gallery,.team-grid,.focus-grid{grid-template-columns:1fr}
+ .process{grid-template-columns:1fr}
+ .doc-card{grid-template-columns:120px 1fr;gap:16px}
+ .brand-sub{display:none}
+ .mentor-card{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:520px){
+ .doc-card{grid-template-columns:1fr}
+ .doc-thumb{aspect-ratio:16/10}
+ .doc-thumb img{object-position:top center}
+  .hero-actions .btn,.contact-panel .btn{width:100%;justify-content:center}
+  .nav{padding:8px 10px}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+ .js .reveal{opacity:1!important;transform:none!important}
+ .eyebrow .dot,.hero-float{animation:none!important}
+}
+@media print{
+ .top,.hero-visual,.hero-actions,.skip-link,.nav-toggle{display:none!important}
+ .bg{display:none}.section{padding:18px 0;border:0}
+ body{background:#fff;color:#111;font-size:11pt;line-height:1.45}
+ .glass-panel,.card,.pstep,.focus,.person,.mentor-card,.doc-card,.roadmap,.abstract,.abs-block{background:#fff!important;border:1px solid #ccc!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+ h1,h2,h3,.abs-title,.brand-name{color:#111!important}
+ .lead,.card p,.pstep p,.focus p,.person .role,.doc-body p,.abs-block p,.contact-panel p,.roadmap li,.refs li{color:#333!important}
+ .kicker,.abs-block h3,.num,.avatar,.pstep .n{color:#0b5c3b!important}
+ .grid-3,.process,.gallery,.team-grid,.docs,.abs-grid{grid-template-columns:1fr 1fr}
+ a[href^="http"]::after{content:" (" attr(href) ")";font-size:.7em;color:#555;word-break:break-all}
+}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"></div>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="top">
+ <div class="wrap">
+  <div class="nav">
+   <a class="brand" href="#home" aria-label="REGen Pavilion home">
+    <span class="brand-logo" aria-hidden="true">R</span>
+    <span><span class="brand-name">REGen Pavilion</span><span class="brand-sub">Lignin Bio-Additive Research</span></span>
+   </a>
+   <button class="nav-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+   <nav class="navlinks" id="site-nav" aria-label="Main navigation">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#technology">Technology</a>
+    <a href="#research">Research</a>
+    <a href="#impact">Impact</a>
+    <a href="#team">Team</a>
+    <a href="#resources">Resources</a>
+    <a href="#contact">Contact</a>
+   </nav>
+   <a class="nav-cta" href="#contact">Get in touch</a>
+  </div>
+ </div>
+</header>
+
+<main id="main">
+<section class="hero" id="home"><div class="wrap hero-grid">
+  <div class="hero-copy">
+   <span class="eyebrow reveal"><span class="dot" aria-hidden="true"></span> Bioenergy &amp; Waste-to-Energy · KARE</span>
+   <h1 class="reveal d1">Transforming Biomass into Value</h1>
+   <p class="hero-title-sub reveal d1">Extraction and Utilisation of Lignin as a Bio-Additive</p>
+   <p class="lead reveal d2">A KARE student research project exploring lignin extraction and controlled conversion pathways to investigate the potential of biomass-derived materials as bio-additives for compression-ignition engines.</p>
+   <div class="hero-actions reveal d2">
+    <a class="btn btn-primary" href="#technology">Explore Our Research <span aria-hidden="true">→</span></a>
+    <a class="btn btn-glass" href="assets/regen-pavillion-poster.pdf" target="_blank" rel="noopener">View Research Poster <span aria-hidden="true">↗</span></a>
+   </div>
+   <div class="hero-meta reveal d3">
+    <span class="pill">Kalasalingam Academy of Research and Education</span>
+    <span class="pill">Interdisciplinary team</span>
+    <span class="pill">Planned blend limit: 20%</span>
+   </div>
+  </div>
+  <div class="hero-visual reveal d1">
+   <div class="hero-halo" aria-hidden="true"></div>
+   <div class="hero-3d loading" id="hero-3d" aria-label="Interactive 3D visualization of lignin bio-additive research concept"></div>
+   <div class="hero-float-wrap">
+    <div class="hero-float hero-float-1 glass-panel"><div class="hf-icon" aria-hidden="true">🌱</div><div><strong>Biomass</strong><span>Residue valorisation</span></div></div>
+    <div class="hero-float hero-float-2 glass-panel"><div class="hf-icon" aria-hidden="true">⚗️</div><div><strong>Lignin Extraction</strong><span>Separation &amp; recovery</span></div></div>
+    <div class="hero-float hero-float-3 glass-panel"><div class="hf-icon" aria-hidden="true">🔥</div><div><strong>Pyrolysis</strong><span>Controlled conversion</span></div></div>
+    <div class="hero-float hero-float-4 glass-panel"><div class="hf-icon" aria-hidden="true">⚙️</div><div><strong>CI Engine Testing</strong><span>Performance &amp; emissions</span></div></div>
+   </div>
+  </div>
+</div></section>
+
+<section class="section alt" id="about"><div class="wrap">
+ <div class="section-head reveal"><div class="kicker">01 · About the project</div><h2>Turning biomass lignin into a fuel research question</h2><p class="lead">Lignin is a carbon-rich aromatic component of plant biomass. This project will investigate whether lignin-derived pyrolysis liquid can be assessed as a bio-additive in diesel blends, with suitability determined through fuel-property and engine testing.</p></div>
+ <div class="grid-3">
+  <article class="card reveal"><div class="num" aria-hidden="true">A</div><h3>The challenge</h3><p>Diesel engines depend on petroleum-based fuels. Alternative components require careful assessment of physicochemical properties, compatibility, combustion and emissions.</p></article>
+  <article class="card reveal d1"><div class="num" aria-hidden="true">B</div><h3>The approach</h3><p>Connect lignin extraction and controlled pyrolysis with liquid-product characterization, selected diesel-blend preparation and comparative CI-engine evaluation.</p></article>
+  <article class="card reveal d2"><div class="num" aria-hidden="true">C</div><h3>The potential</h3><p>Explore a value-added use for biomass-derived lignin while making no assumptions about engine benefits before experimental evidence is available.</p></article>
+ </div>
+</div></section>
+
+<section class="section" id="technology"><div class="wrap">
+ <div class="section-head reveal"><div class="kicker">02 · Technology &amp; methodology</div><h2>From biomass preparation to engine evaluation</h2><p class="lead">The eight stages below summarize the proposed research framework. Operational details should match the team's approved laboratory protocol.</p></div>
+ <div class="process">
+  <div class="pstep reveal"><div class="n">STEP 01</div><h3>Biomass selection &amp; preparation</h3><p>Select the feedstock; clean, dry and prepare it for lignin extraction.</p><span class="tag-status">Proposed</span></div>
+  <div class="pstep reveal d1"><div class="n">STEP 02</div><h3>Lignin extraction</h3><p>Separate and recover lignin using the selected extraction method.</p><span class="tag-status">Proposed</span></div>
+  <div class="pstep reveal d2"><div class="n">STEP 03</div><h3>Controlled pyrolysis</h3><p>Convert the recovered lignin into liquid products under controlled conditions.</p><span class="tag-status">Proposed</span></div>
+  <div class="pstep reveal d3"><div class="n">STEP 04</div><h3>Product characterization</h3><p>Assess density, viscosity, calorific value, flash point and chemical composition.</p><span class="tag-status">Proposed</span></div>
+  <div class="pstep reveal"><div class="n">STEP 05</div><h3>Diesel blend preparation</h3><p>Evaluate selected dosage levels up to a maximum of 20%, after suitability checks.</p><span class="tag-status">Proposed</span></div>
+  <div class="pstep reveal d1"><div class="n">STEP 06</div><h3>CI engine testing</h3><p>Compare prepared blends with conventional diesel under selected operating conditions.</p><span class="tag-status">Proposed</span></div>
+  <div class="pstep reveal d2"><div class="n">STEP 07</div><h3>Performance &amp; combustion</h3><p>Analyze BTE, SFC, cylinder pressure, heat release rate and ignition delay.</p><span class="tag-status">Proposed</span></div>
+  <div class="pstep reveal d3"><div class="n">STEP 08</div><h3>Emission assessment</h3><p>Evaluate CO, unburned HC, NOx and smoke emissions.</p><span class="tag-status">Proposed</span></div>
+ </div>
+ <div class="notice reveal"><span aria-hidden="true">◆</span><div><strong>Scientific integrity:</strong> Pyrolysis oil is not automatically equivalent to diesel. Fuel compatibility and suitability must be assessed before engine testing. The 20% value is the planned maximum blend limit, not a proven optimum.</div></div>
+</div></section>
+
+<section class="section alt" id="research"><div class="wrap">
+ <div class="section-head reveal"><div class="kicker">03 · Research</div><h2>The research in brief</h2><p class="lead">Official abstract submitted to the Renewable Energy Research Poster Challenge 2026, with the project's focus areas and proposed validation path.</p></div>
+ <div class="abstract glass-panel reveal">
+  <h3 class="abs-title">Extraction and Utilisation of Lignin as Bio-Additive in a Compression Ignition Engine Fuelled with Diesel Fuel – An Approach to Improve Fuel Properties</h3>
+  <p class="abs-authors">Srinath Vatchavari Venkateshan, Aarya Brat Shankar &amp; R. Bhuvaneshwaran</p>
+  <p class="abs-affil">Department of Mechanical Engineering · Department of Biotechnology · Department of Electrical and Electronics Engineering, KARE, Krishnankoil, Tamil Nadu, India</p>
+  <div class="abs-tags"><span class="pill">Presenting author: Srinath Vatchavari Venkateshan</span><span class="pill">Thematic area: Bioenergy &amp; Waste-to-Energy</span></div>
+  <div class="abs-grid">
+   <div class="abs-block"><h3>Background / Problem</h3><p>Diesel engines depend heavily on petroleum-based fuels, creating a need to explore alternative fuel additives. Lignin, a carbon-rich component of biomass, offers potential for conversion into liquid products through pyrolysis. However, the suitability of lignin-derived bio-additives for diesel blending requires evaluation of their fuel properties, combustion behaviour and engine emissions.</p></div>
+   <div class="abs-block"><h3>Objective / Research Question</h3><p>To extract lignin from suitable biomass, produce bio-additives through controlled pyrolysis, and evaluate their physicochemical properties and suitability for blending with diesel at different dosage levels.</p></div>
+   <div class="abs-block"><h3>Key Findings / Results</h3><p>The study will investigate lignin extraction from suitable biomass and the production of bio-additives through controlled pyrolysis. The resulting liquid products will be characterized for density, viscosity, calorific value, flash point and chemical composition. Diesel blends containing different bio-additive proportions, up to a maximum of 20%, will be evaluated for fuel properties, engine performance, combustion characteristics and emissions. Experimental comparisons with conventional diesel will help assess blend suitability and identify a promising dosage level.</p></div>
+   <div class="abs-block"><h3>Novelty &amp; Potential Application</h3><p>This study integrates lignin extraction from biomass, controlled pyrolysis, bio-additive characterization and diesel-blend evaluation in a compression-ignition engine. It explores the potential to valorize biomass resources and partially substitute petroleum-based diesel. Further optimization and pilot-scale assessment could help determine its technical feasibility, scalability and contribution to India's renewable energy development.</p></div>
+  </div>
+  <p class="keywords"><b>Keywords:</b> Lignin, Bio-additives, Pyrolysis, Diesel Blending, Compression-Ignition Engine.</p>
+  <div class="hero-actions" style="margin-top:22px"><a class="btn btn-primary btn-sm" href="assets/regen-pavillion-abstract.pdf" download="REGen-Pavillion-Abstract-KARE.pdf">Download abstract (PDF) ↓</a><a class="btn btn-glass btn-sm" href="assets/regen-pavillion-abstract.pdf" target="_blank" rel="noopener">Open in browser ↗</a></div>
+ </div>
+
+ <div class="grid-2 focus-grid">
+  <div class="focus reveal"><h3>Biomass processing</h3><p>Feedstock selection, cleaning, drying and preparation ahead of lignin recovery.</p></div>
+  <div class="focus reveal d1"><h3>Lignin extraction</h3><p>Separation and recovery of lignin using the team's selected extraction method.</p></div>
+  <div class="focus reveal"><h3>Conversion pathways</h3><p>Controlled pyrolysis to investigate liquid products from recovered lignin.</p></div>
+  <div class="focus reveal d1"><h3>Product characterisation</h3><p>Density, viscosity, calorific value, flash point and chemical composition assessment.</p></div>
+ </div>
+
+ <div class="status-note reveal"><span aria-hidden="true">●</span><div><strong>Current status:</strong> Research in progress. No experimental results are claimed on this website. Quantitative findings will be added only when measurements and data analysis are available.</div></div>
+
+ <div class="gallery">
+  <figure class="reveal"><picture><source type="image/webp" srcset="assets/biomass-feedstock-600.webp 600w, assets/biomass-feedstock-1000.webp 1000w, assets/biomass-feedstock-1600.webp 1600w" sizes="(max-width:760px) 92vw, 49vw"><img src="assets/biomass-feedstock.png" width="1600" height="569" loading="lazy" decoding="async" alt="Illustration of rice straw, corn stover, sugarcane bagasse, wood chips and sawdust"></picture><figcaption><strong>Biomass feedstock concept.</strong> Generic examples only; the team's actual selected biomass must be confirmed.</figcaption></figure>
+  <figure class="reveal d1"><picture><source type="image/webp" srcset="assets/full-research-workflow-600.webp 600w, assets/full-research-workflow-1000.webp 1000w, assets/full-research-workflow-1600.webp 1600w" sizes="(max-width:760px) 92vw, 49vw"><img src="assets/full-research-workflow.png" width="1600" height="640" loading="lazy" decoding="async" alt="Full workflow from biomass to lignin-derived liquid, diesel blends and engine evaluation"></picture><figcaption><strong>Full research workflow.</strong> Conceptual summary of the proposed process.</figcaption></figure>
+  <figure class="reveal"><picture><source type="image/webp" srcset="assets/results-layout-illustrative-only-400.webp 400w, assets/results-layout-illustrative-only-700.webp 700w, assets/results-layout-illustrative-only-941.webp 941w" sizes="(max-width:760px) 92vw, 49vw"><img src="assets/results-layout-illustrative-only.png" width="941" height="1672" loading="lazy" decoding="async" alt="Illustrative results infographic layout with example charts and tables"></picture><figcaption><strong>Results layout reference — illustrative only.</strong> Its sample numerical values and graphs are not the team's data and must not be presented as findings.</figcaption></figure>
+  <figure class="reveal d1"><picture><source type="image/webp" srcset="assets/methodology-portrait-400.webp 400w, assets/methodology-portrait-700.webp 700w, assets/methodology-portrait-1000.webp 1000w" sizes="(max-width:760px) 92vw, 49vw"><img src="assets/methodology-portrait.png" width="1000" height="1333" loading="lazy" decoding="async" alt="Illustrative research poster workflow showing biomass, extraction, pyrolysis, fuel characterization and engine testing"></picture><figcaption><strong>Methodology reference illustration.</strong> Use only the steps and species that match the actual protocol.</figcaption></figure>
+ </div>
+</div></section>
+
+<section class="section" id="impact"><div class="wrap">
+ <div class="section-head reveal"><div class="kicker">04 · Sustainability &amp; impact</div><h2>Waste-to-value, to be evaluated</h2><p class="lead">Biomass valorisation could support a more circular use of agricultural and plant residues. The project is designed to generate evidence before any impact is claimed.</p></div>
+ <div class="grid-3">
+  <article class="card impact-card reveal"><div class="ic" aria-hidden="true">♻</div><h3>Waste valorisation</h3><p>Explore a value-added use for biomass residues instead of disposal, starting from lignin recovery.</p></article>
+  <article class="card impact-card reveal d1"><div class="ic" aria-hidden="true">⚡</div><h3>Renewable fuel research</h3><p>Investigate whether lignin-derived liquids could partially contribute to diesel blending, subject to validation.</p></article>
+  <article class="card impact-card reveal d2"><div class="ic" aria-hidden="true">◎</div><h3>Circular bioeconomy</h3><p>Connect biomass processing, materials and energy research within a circular, resource-conscious approach.</p></article>
+ </div>
+ <div class="roadmap reveal">
+  <h3>Planned validation milestones</h3>
+  <ol>
+   <li><span class="rn">01</span><span>Fuel property characterisation of recovered lignin products.</span></li>
+   <li><span class="rn">02</span><span>Diesel blend preparation up to the planned 20% maximum.</span></li>
+   <li><span class="rn">03</span><span>CI engine performance, combustion and emission testing.</span></li>
+   <li><span class="rn">04</span><span>Feasibility and life-cycle assessment (planned).</span></li>
+  </ol>
+ </div>
+ <div class="notice reveal"><span aria-hidden="true">◆</span><div><strong>Evidence first:</strong> No environmental or efficiency savings have been measured. Any benefits described here are potential outcomes, subject to experimental validation and life-cycle assessment.</div></div>
+</div></section>
+
+<section class="section alt" id="team"><div class="wrap">
+ <div class="section-head reveal"><div class="kicker">05 · People behind the project</div><h2>Research team &amp; mentor</h2><p class="lead">Kalasalingam Academy of Research and Education (KARE), Krishnankoil, Tamil Nadu, India.</p></div>
+ <div class="team-grid">
+  <div class="person reveal"><div class="avatar" aria-hidden="true">SV</div><div><h3>Srinath Vatchavari Venkateshan</h3><p class="role">First-year student · Department of Mechanical Engineering</p><a class="contact" href="mailto:9926009061&#64;klu&#46;ac&#46;in">9926009061&#64;klu&#46;ac&#46;in</a></div></div>
+  <div class="person reveal d1"><div class="avatar" aria-hidden="true">AS</div><div><h3>Aarya Brat Shankar</h3><p class="role">First-year student · Department of Biotechnology</p><a class="contact" href="mailto:9926001001&#64;klu&#46;ac&#46;in">9926001001&#64;klu&#46;ac&#46;in</a></div></div>
+  <div class="person reveal"><div class="avatar" aria-hidden="true">RB</div><div><h3>R. Bhuvaneshwaran</h3><p class="role">First-year student · Department of Electrical and Electronics Engineering (EEE)</p><a class="contact" href="mailto:9926006025&#64;klu&#46;ac&#46;in">9926006025&#64;klu&#46;ac&#46;in</a></div></div>
+  <div class="person reveal d1"><div class="avatar" aria-hidden="true">SG</div><div><h3>Dr. S. Gowthaman</h3><p class="role">Associate Professor · Department of Mechanical Engineering</p><a class="contact" href="mailto:gowthaman&#46;s&#64;klu&#46;ac&#46;in">gowthaman&#46;s&#64;klu&#46;ac&#46;in</a></div></div>
+  <div class="mentor-card reveal">
+   <div>
+    <div class="m-label">Project mentor</div>
+    <h3>Dr. S. Gowthaman</h3>
+    <p>Associate Professor · Department of Mechanical Engineering</p>
+    <p>Kalasalingam Academy of Research and Education</p>
+   </div>
+   <div class="m-actions">
+    <a class="btn btn-primary btn-sm" href="mailto:gowthaman&#46;s&#64;klu&#46;ac&#46;in">Email mentor</a>
+    <a class="btn btn-glass btn-sm" href="https://scholar.google.com/citations?hl=en&user=ZaxR-vAAAAAJ&view_op=list_works" target="_blank" rel="noopener">Google Scholar ↗</a>
+   </div>
+  </div>
+ </div>
+ <p class="small reveal" style="margin-top:20px">Public contact details are displayed as provided by the team. Confirm all addresses and obtain permission before publishing personal or institutional contact information publicly.</p>
+</div></section>
+
+<section class="section" id="resources"><div class="wrap">
+ <div class="section-head reveal"><div class="kicker">06 · Resources</div><h2>Poster &amp; abstract</h2><p class="lead">Project documents from the Renewable Energy Research Poster Challenge 2026. View or download the original files.</p></div>
+ <div class="docs">
+  <article class="doc-card reveal">
+   <div class="doc-thumb"><span class="doc-kind">Poster</span><picture><source type="image/webp" srcset="assets/poster-preview-600.webp 600w, assets/poster-preview-900.webp 900w, assets/poster-preview-1200.webp 1200w" sizes="(max-width:520px) 90vw, 150px"><img src="assets/poster-preview.png" width="1225" height="1675" loading="lazy" decoding="async" alt="Preview of the REGen Pavilion research poster on lignin bio-additives"></picture></div>
+   <div class="doc-body">
+    <div class="kicker">Research poster</div>
+    <h3>Lignin as a bio-additive in a compression ignition engine</h3>
+    <p>Full poster summarizing motivation, planned methodology and the research framework from biomass to engine evaluation.</p>
+    <div class="doc-actions"><a class="btn btn-primary btn-sm" href="assets/regen-pavillion-poster.pdf" download="REGen-Pavillion-Poster-KARE.pdf">Download PDF ↓</a><a class="btn btn-glass btn-sm" href="assets/regen-pavillion-poster.pdf" target="_blank" rel="noopener">View poster ↗</a></div>
+    <div class="doc-meta">PDF · 1 page · A0 portrait · approx. 1.1 MB</div>
+   </div>
+  </article>
+  <article class="doc-card reveal d1">
+   <div class="doc-thumb"><span class="doc-kind">Abstract</span><picture><source type="image/webp" srcset="assets/abstract-preview-600.webp 600w, assets/abstract-preview-900.webp 900w, assets/abstract-preview-1200.webp 1200w" sizes="(max-width:520px) 90vw, 150px"><img src="assets/abstract-preview.png" width="1471" height="2067" loading="lazy" decoding="async" alt="Preview of the submitted poster-challenge abstract"></picture></div>
+   <div class="doc-body">
+    <div class="kicker">Abstract submission</div>
+    <h3>Official abstract — Renewable Energy Research Poster Challenge 2026</h3>
+    <p>The submitted abstract with background, objectives, planned results, novelty and keywords.</p>
+    <div class="doc-actions"><a class="btn btn-primary btn-sm" href="assets/regen-pavillion-abstract.pdf" download="REGen-Pavillion-Abstract-KARE.pdf">Download PDF ↓</a><a class="btn btn-glass btn-sm" href="assets/regen-pavillion-abstract.pdf" target="_blank" rel="noopener">View abstract ↗</a></div>
+    <div class="doc-meta">PDF · 2 pages · approx. 1.7 MB</div>
+   </div>
+  </article>
+ </div>
+</div></section>
+
+<section class="section alt" id="references"><div class="wrap">
+ <div class="section-head reveal"><div class="kicker">07 · References</div><h2>Selected references</h2><p class="lead">Background literature on lignin pyrolysis and bio-oil assessment.</p></div>
+ <ol class="refs">
+  <li>Yang, H., Yan, R., Chen, H., Lee, D. H., &amp; Zheng, C. (2007). “Characteristics of hemicellulose, cellulose and lignin pyrolysis.” <em>Fuel</em>, 86(12–13), 1781–1788. <a href="https://doi.org/10.1016/j.fuel.2006.12.013" target="_blank" rel="noopener">DOI</a></li>
+  <li>Leng, L., Li, H., Yuan, X., Zhou, W., &amp; Huang, H. (2018). “Bio-oil upgrading by emulsification/microemulsification: A review.” <em>Energy</em>, 161, 214–232. <a href="https://doi.org/10.1016/j.energy.2018.07.117" target="_blank" rel="noopener">DOI</a></li>
+  <li>Panchasara, H., &amp; Ashwath, N. (2021). “Effects of Pyrolysis Bio-Oils on Fuel Atomisation—A Review.” <em>Energies</em>, 14(4), 794. <a href="https://doi.org/10.3390/en14040794" target="_blank" rel="noopener">DOI</a></li>
+  <li>Bridgwater, A. V. (2012). “Review of fast pyrolysis of biomass and product upgrading.” <em>Biomass and Bioenergy</em>, 38, 68–94. <a href="https://doi.org/10.1016/j.biombioe.2011.01.048" target="_blank" rel="noopener">DOI</a></li>
+  <li>Czernik, S., &amp; Bridgwater, A. V. (2004). “Overview of applications of biomass fast pyrolysis oil.” <em>Energy &amp; Fuels</em>, 18(2), 590–598. <a href="https://doi.org/10.1021/ef034067u" target="_blank" rel="noopener">DOI</a></li>
+  <li>Pandey, M. P., &amp; Kim, C. S. (2011). “Lignin depolymerization and conversion: a review of thermochemical methods.” <em>Chemical Engineering &amp; Technology</em>, 34(1), 29–41. <a href="https://doi.org/10.1002/ceat.201000270" target="_blank" rel="noopener">DOI</a></li>
+  <li>Dhyani, V., &amp; Bhaskar, T. (2018). “A comprehensive review on the pyrolysis of lignocellulosic biomass.” <em>Renewable Energy</em>, 129, 695–716. <a href="https://doi.org/10.1016/j.renene.2017.04.035" target="_blank" rel="noopener">DOI</a></li>
+  <li>Liu, C., Wang, H., Karim, A. M., Sun, J., &amp; Wang, Y. (2014). “Catalytic fast pyrolysis of lignocellulosic biomass.” <em>Chemical Society Reviews</em>, 43(22), 7594–7623. <a href="https://doi.org/10.1039/C3CS60414D" target="_blank" rel="noopener">DOI</a></li>
+ </ol>
+ <p class="small reveal" style="margin-top:18px">Verify every citation against the original publication before formal submission.</p>
+</div></section>
+
+<section class="section" id="contact"><div class="wrap">
+ <div class="section-head reveal"><div class="kicker">08 · Collaboration &amp; contact</div><h2>Work with the team</h2><p class="lead">The team welcomes academic and industry collaboration related to lignin valorisation, biomass conversion and sustainable fuel research.</p></div>
+ <div class="contact-grid">
+  <div class="contact-panel glass-panel reveal">
+   <h3>Get in touch</h3>
+   <p>For questions about the project, methodology or potential collaboration, contact the presenting author or the project mentor.</p>
+   <ul class="contact-list">
+    <li><span class="cname">Srinath Vatchavari Venkateshan · Presenting author</span><a href="mailto:9926009061&#64;klu&#46;ac&#46;in">9926009061&#64;klu&#46;ac&#46;in</a></li>
+    <li><span class="cname">Dr. S. Gowthaman · Project mentor</span><a href="mailto:gowthaman&#46;s&#64;klu&#46;ac&#46;in">gowthaman&#46;s&#64;klu&#46;ac&#46;in</a></li>
+   </ul>
+   <div class="hero-actions" style="margin-top:22px"><a class="btn btn-primary" href="mailto:9926009061&#64;klu&#46;ac&#46;in">Email the team</a><a class="btn btn-glass" href="#resources">Download resources ↓</a></div>
+  </div>
+  <div class="contact-panel glass-panel reveal d1">
+   <h3>Project acknowledgement</h3>
+   <p>The team acknowledges Kalasalingam Academy of Research and Education (KARE) for institutional support and expresses gratitude to Dr. S. Gowthaman for guidance and encouragement.</p>
+   <h3 style="margin-top:22px">Collaboration areas</h3>
+   <p>Lignin extraction · controlled pyrolysis · fuel characterisation · CI engine testing · life-cycle assessment.</p>
+   <p class="small">No partnerships, funding or commercial agreements are claimed on this website.</p>
+  </div>
+ </div>
+</div></section>
+</main>
+
+<footer class="footer"><div class="wrap footer-row">
+ <div><span class="brand-name">REGen Pavilion</span><p>Bioenergy &amp; Waste-to-Energy · KARE, Tamil Nadu, India</p><p>Lignin Bio-Additive Research</p></div>
+ <div><p>Research project in progress</p><p>Website content last prepared: October 2026</p><p><a href="#home">Back to top ↑</a></p></div>
+</div></footer>
+
+  <style>
+    .hero-visual{position:relative;min-height:520px;display:flex;align-items:center;justify-content:center}
+    .hero-halo{position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(67,230,154,.24),transparent 70%);filter:blur(40px);pointer-events:none}
+    .hero-3d{position:relative;width:100%;max-width:560px;height:520px;z-index:2}
+    .hero-3d canvas{width:100%!important;height:100%!important;display:block}
+    .hero-3d.loading::before{content:"";position:absolute;inset:12%;border-radius:24px;background:radial-gradient(circle,rgba(67,230,154,.16),transparent 70%);filter:blur(24px);animation:pulse 2s ease-in-out infinite}
+    .hero-3d.loading::after{content:"Initializing 3D...";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:.82rem;color:var(--text2);letter-spacing:.08em;text-transform:uppercase}
+    .hero-3d.fallback{background:radial-gradient(circle at 50% 50%,rgba(67,230,154,.16),transparent 60%)}
+    .hero-3d.fallback::before{content:"";position:absolute;inset:12%;border-radius:24px;background:url('assets/methodology-portrait.png') center/cover;opacity:.42;filter:saturate(.85)}
+    .hero-3d.fallback::after{content:"Interactive 3D view unavailable on this device";position:absolute;left:50%;bottom:8%;transform:translateX(-50%);font-size:.78rem;color:var(--text2);text-align:center;padding:8px 16px;background:rgba(6,17,14,.7);border-radius:999px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+    .hero-3d.reduced::after{content:"";position:absolute;inset:12%;border-radius:30px;background:url('assets/methodology-portrait.png') center/cover;opacity:.95;filter:saturate(1.08);box-shadow:0 40px 80px -50px rgba(0,0,0,.9)}
+    .hero-float{position:absolute;display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:999px;z-index:4;animation:float 6s ease-in-out infinite;backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%)}
+    .hero-float-1{top:10%;left:-4%}
+    .hero-float-2{top:18%;right:-6%;animation-delay:1s}
+    .hero-float-3{bottom:18%;left:-6%;animation-delay:2s}
+    .hero-float-4{bottom:12%;right:-4%;animation-delay:3s}
+    .hf-icon{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:rgba(67,230,154,.18);border:1px solid rgba(67,230,154,.4)}
+    .hero-float strong{display:block;font-size:.9rem}
+    .hero-float span{display:block;font-size:.78rem;color:var(--text2)}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+    .hero-float-wrap{position:absolute;inset:0;pointer-events:none}
+    .hero-float-wrap .hero-float{pointer-events:auto}
+    @media(max-width:1020px){.hero-visual{min-height:460px}.hero-3d{height:460px}}
+    @media(max-width:768px){.hero-visual{flex-direction:column;gap:16px;min-height:auto}.hero-halo{width:320px;height:320px}.hero-3d{height:380px}.hero-float-wrap{position:static;display:flex;flex-wrap:wrap;justify-content:center;gap:10px;width:100%}.hero-float{position:relative;top:auto;left:auto;right:auto;bottom:auto;margin:0;animation:none;backdrop-filter:blur(14px) saturate(135%);-webkit-backdrop-filter:blur(14px) saturate(135%);width:min(320px,92vw)}}
+    @media(max-width:520px){.hero-3d{height:320px}.hero-float{padding:10px 14px}}
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ResearchProject",
+  "name": "Extraction and Utilisation of Lignin as Bio-Additive in a Compression Ignition Engine Fuelled with Diesel Fuel",
+  "description": "KARE student research project investigating lignin-derived bio-additives for diesel fuel and compression-ignition engine evaluation.",
+  "inLanguage": "en",
+  "areaServed": "IN",
+  "funder": { "@type": "CollegeOrUniversity", "name": "Kalasalingam Academy of Research and Education" },
+  "member": [
+    { "@type": "Person", "name": "Srinath Vatchavari Venkateshan" },
+    { "@type": "Person", "name": "Aarya Brat Shankar" },
+    { "@type": "Person", "name": "R. Bhuvaneshwaran" }
+  ]
+}
+</script>
+</body></html>
