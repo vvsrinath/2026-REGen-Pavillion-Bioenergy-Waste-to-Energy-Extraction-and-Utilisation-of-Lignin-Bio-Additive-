@@ -1,14 +1,18 @@
-LIGNIN BIO-ADDITIVE RESEARCH WEBSITE — VERSION 6
+LIGNIN BIO-ADDITIVE RESEARCH WEBSITE — VERSION 7
 
 Included:
-- index.html: professional, responsive research website (single page)
-- 404.html: themed "page not found" page (served automatically by Netlify)
+- index.html: responsive, dark "premium glass" research website (single page)
+  with sticky navigation, scroll reveals, subtle hero parallax and an ambient
+  particle field (all disabled automatically for reduced-motion users)
+- assets/site.js: the small, dependency-free script powering those interactions
+  (external file, allowed by the site's Content-Security-Policy)
+- 404.html: matching dark, themed "page not found" page (served by Netlify)
 - assets/regen-pavillion-abstract.pdf: the submitted poster-challenge abstract,
   reproduced in the "Abstract" section with a download button
 - assets/regen-pavillion-poster.pdf: the presented research poster, shown in
   the "Poster" section with a preview image and a download button
-- assets/: responsive images (WebP at 3 widths + PNG fallback), poster
-  preview (WebP + PNG), SVG/ICO favicons and 192/512 px app icons
+- assets/: responsive images (WebP at 3 widths + PNG fallback), poster and
+  abstract previews (WebP + PNG), SVG/ICO favicons and 192/512 px app icons
 - manifest.webmanifest: installable web-app metadata
 - netlify.toml: Netlify build, security headers and caching configuration
 - robots.txt, sitemap.xml: search-engine basics
@@ -75,8 +79,14 @@ PERFORMANCE / MAINTENANCE NOTES
 - Images ship as WebP at 3 widths (with a compressed PNG fallback) via
   <picture>/srcset, cutting asset weight from ~8 MB to well under 1 MB
   and letting phones download smaller variants.
-- Assets are cached for one year (immutable); index.html is always
+- Images, fonts-style media, icons and PDFs are cached for one year
+  (immutable); index.html, other HTML and assets/site.js are always
   revalidated. If you edit an image but keep the same filename, rename the
   file (e.g. add a version suffix) so the CDN serves the new copy.
-- The mobile navigation is a CSS-only hamburger (no JavaScript), and the
-  page has a print stylesheet for poster/handout use.
+- assets/site.js is a single, dependency-free file. It is loaded in <head> and
+  immediately tags <html class="js">, so the mobile menu only hides its links
+  when JavaScript is available. Without JavaScript the page remains readable
+  and all sections are still visible.
+- The page honours prefers-reduced-motion (no particles, parallax or reveal
+  animation) and includes a print stylesheet for poster/handout use.
+- All motion and effects are decorative; no content depends on them.
