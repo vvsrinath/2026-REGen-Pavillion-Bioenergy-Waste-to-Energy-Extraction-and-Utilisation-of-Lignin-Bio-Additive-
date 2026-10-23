@@ -9,22 +9,25 @@ import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js'
   const container = document.getElementById('hero-3d');
   if(!container) return;
   if(reduceMotion){
+    container.classList.remove('loading');
     container.classList.add('reduced');
     return;
   }
   if(!window.WebGLRenderingContext){
+    container.classList.remove('loading');
     container.classList.add('fallback');
     return;
   }
   try{
+    container.classList.remove('loading');
     const canvas = document.createElement('canvas');
     container.appendChild(canvas);
     const renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true});
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.8));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.6));
     renderer.setSize(container.clientWidth, container.clientHeight);
     renderer.setClearColor(0x000000, 0);
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.12;
+    renderer.toneMappingExposure = 1.1;
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(38, container.clientWidth/container.clientHeight, 0.1, 40);
@@ -34,14 +37,14 @@ import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js'
     controls.enableDamping = true;
     controls.enableZoom = false;
     controls.enablePan = false;
-    controls.autoRotate = true;
+    controls.autoRotate = !reduceMotion;
     controls.autoRotateSpeed = 0.4;
     controls.minPolarAngle = Math.PI/3.2;
     controls.maxPolarAngle = Math.PI/2.1;
 
     const composer = new EffectComposer(renderer);
     composer.addPass(new RenderPass(scene, camera));
-    const bloom = new UnrealBloomPass(new THREE.Vector2(container.clientWidth, container.clientHeight), 0.8, 0.4, 0.85);
+    const bloom = new UnrealBloomPass(new THREE.Vector2(container.clientWidth, container.clientHeight), 0.65, 0.36, 0.8);
     composer.addPass(bloom);
 
     const hemi = new THREE.HemisphereLight(0x43e69a, 0x06110e, 4.2);
@@ -163,7 +166,6 @@ import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js'
       composer.render();
       frame = requestAnimationFrame(tick);
     };
-    tick();
 
     const onResize = ()=>{
       const w = container.clientWidth, h = container.clientHeight;
@@ -176,13 +178,22 @@ import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js'
     const ro = new ResizeObserver(onResize);
     ro.observe(container);
 
+    let visible = true;
     const io = new IntersectionObserver((entries)=>{
-      if(entries[0].isIntersecting){ renderer.setAnimationLoop && renderer.setAnimationLoop(tick); }
-      else { cancelAnimationFrame(frame); }
-    }, {threshold:0.1});
+      visible = entries[0].isIntersecting;
+      if(visible && !document.hidden){ start(); } else { stop(); }
+    }, {threshold:0.12});
     io.observe(container);
+
+    const start = ()=>{ if(!frame && visible && !document.hidden){ frame = requestAnimationFrame(tick); }};
+    const stop = ()=>{ if(frame){ cancelAnimationFrame(frame); frame = null; }};
+    document.addEventListener('visibilitychange', ()=>{
+      if(document.hidden) stop(); else if(visible) start();
+    });
+    start();
   }catch(err){
     console.warn('Hero 3D init failed', err);
+    container.classList.remove('loading');
     container.classList.add('fallback');
   }
 })();

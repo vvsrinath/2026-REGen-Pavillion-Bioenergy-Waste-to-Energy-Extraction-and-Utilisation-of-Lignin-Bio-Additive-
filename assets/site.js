@@ -25,12 +25,18 @@ document.documentElement.classList.add('js');
       var setOpen = function (open) {
         navLinks.classList.toggle('open', open);
         toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        document.body.classList.toggle('nav-open', open);
       };
-      toggle.addEventListener('click', function () {
+      toggle.addEventListener('click', function (e) {
+        e.stopPropagation();
         setOpen(toggle.getAttribute('aria-expanded') !== 'true');
       });
       navLinks.addEventListener('click', function (e) {
         if (e.target.closest('a')) setOpen(false);
+      });
+      document.addEventListener('click', function (e) {
+        if (toggle.getAttribute('aria-expanded') !== 'true') return;
+        if (!navLinks.contains(e.target) && !toggle.contains(e.target)) setOpen(false);
       });
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
@@ -41,6 +47,20 @@ document.documentElement.classList.add('js');
       window.addEventListener('resize', function () {
         if (window.innerWidth > 1020) setOpen(false);
       }, { passive: true });
+    }
+
+    /* ---- 3D loading fallback ---- */
+    var hero3d = document.getElementById('hero-3d');
+    if (hero3d) {
+      window.setTimeout(function () {
+        if (hero3d.classList.contains('loading')) {
+          hero3d.classList.remove('loading');
+          hero3d.classList.add('fallback');
+        }
+      }, 6000);
+      hero3d.addEventListener('pointerdown', function () {
+        hero3d.classList.remove('loading');
+      }, { once: true });
     }
 
     /* ---- active section indicator ---- */
