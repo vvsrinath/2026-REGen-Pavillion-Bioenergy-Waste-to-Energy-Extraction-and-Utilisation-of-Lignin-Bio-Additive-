@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>REGen Pavilion | Extraction and Utilisation of Lignin as a Bio-Additive</title>
+<meta name="description" content="REGen Pavilion — KARE student research project investigating lignin-derived bio-additives for diesel fuel and compression-ignition engine evaluation.">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'] },
+        colors: { brand: { 50:'#ecfdf5', 100:'#d1fae5', 500:'#22c55e', 600:'#16a34a', 700:'#15803d' } }
+      }
+    }
+  }
+</script>
+<style>
+  :root{--ap-green:#22c55e;--ap-ink:#101828}
+  body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#101828;background:#fff;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  .glass{background:rgba(255,255,255,.72);backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);border:1px solid rgba(16,24,40,.08)}
+  .glass-card{background:rgba(255,255,255,.8);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border:1px solid rgba(16,24,40,.08);box-shadow:0 1px 1px rgba(16,24,40,.02),0 10px 40px -20px rgba(16,24,40,.4)}
+  .ring-soft{box-shadow:inset 0 1px 0 rgba(255,255,255,.9)}
+  @media (prefers-reduced-motion:reduce){.motion-safe\:animate-none{animation:none!important}}
+</style>
+</head>
+<body class="bg-white text-[#101828]">
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-white focus:shadow-lg focus:ring-1 focus:ring-black/5">Skip to content</a>
+<header class="sticky top-0 z-50">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mt-3 flex items-center justify-between gap-4 rounded-2xl glass ring-soft px-4 py-2.5">
+      <a href="#home" class="flex items-center gap-2.5">
+        <span class="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-600 text-white font-semibold">R</span>
+        <div class="leading-tight">
+          <div class="text-sm font-semibold">REGen Pavilion</div>
+          <div class="text-[11px] tracking-[.18em] uppercase text-gray-500">Lignin Bio-Additive Research</div>
+        </div>
+      </a>
+      <nav class="hidden lg:flex items-center gap-1 text-sm">
+        <a class="px-3 py-1.5 rounded-lg hover:bg-black/[0.02]" href="#home">Home</a>
+        <a class="px-3 py-1.5 rounded-lg hover:bg-black/[0.02]" href="#about">About</a>
+        <a class="px-3 py-1.5 rounded-lg hover:bg-black/[0.02]" href="#technology">Technology</a>
+        <a class="px-3 py-1.5 rounded-lg hover:bg-black/[0.02]" href="#research">Research</a>
+        <a class="px-3 py-1.5 rounded-lg hover:bg-black/[0.02]" href="#impact">Impact</a>
+        <a class="px-3 py-1.5 rounded-lg hover:bg-black/[0.02]" href="#team">Team</a>
+        <a class="px-3 py-1.5 rounded-lg hover:bg-black/[0.02]" href="#resources">Resources</a>
+        <a class="px-3 py-1.5 rounded-lg hover:bg-black/[0.02]" href="#contact">Contact</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <a class="hidden sm:inline-flex items-center gap-1.5 rounded-lg bg-emerald-600 px-3.5 py-1.5 text-sm font-medium text-white hover:bg-emerald-700" href="#contact">Get in touch</a>
+        <button id="nav-toggle" class="lg:hidden inline-flex h-9 w-9 items-center justify-center rounded-lg ring-1 ring-black/5 hover:bg-black/[0.02]" aria-label="Open menu"><svg width="18" height="18" viewBox="0 0 18 18"><path d="M3 5h12M3 9h12M3 13h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+      </div>
+    </div>
+  </div>
+  <div id="nav-drawer" class="hidden lg:hidden fixed inset-0 z-40">
+    <div class="absolute inset-0 bg-black/20"></div>
+    <div class="absolute right-3 top-3 w-[min(320px,92vw)] rounded-2xl glass-card p-2 shadow-xl">
+      <div class="flex items-center justify-between px-2 py-1.5">
+        <div class="text-sm font-medium">Menu</div>
+        <button id="nav-close" class="h-8 w-8 inline-flex items-center justify-center rounded-lg hover:bg-black/[0.02]"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M4 4l8 8M12 4L4 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+      </div>
+      <nav class="flex flex-col text-sm">
+        <a class="px-2 py-2 rounded-lg hover:bg-black/[0.02]" href="#home">Home</a>
+        <a class="px-2 py-2 rounded-lg hover:bg-black/[0.02]" href="#about">About</a>
+        <a class="px-2 py-2 rounded-lg hover:bg-black/[0.02]" href="#technology">Technology</a>
+        <a class="px-2 py-2 rounded-lg hover:bg-black/[0.02]" href="#research">Research</a>
+        <a class="px-2 py-2 rounded-lg hover:bg-black/[0.02]" href="#impact">Impact</a>
+        <a class="px-2 py-2 rounded-lg hover:bg-black/[0.02]" href="#team">Team</a>
+        <a class="px-2 py-2 rounded-lg hover:bg-black/[0.02]" href="#resources">Resources</a>
+        <a class="px-2 py-2 rounded-lg hover:bg-black/[0.02]" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </div>
+</header>
+<main id="main">
+  <section id="home" class="relative">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-10 sm:pt-14 lg:pt-20 pb-14 sm:pb-16 lg:pb-24">
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 rounded-full ring-1 ring-emerald-500/20 bg-emerald-50 px-3 py-1 text-xs text-emerald-700">
+            <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+            Bioenergy & Waste-to-Energy · KARE
+          </div>
+          <h1 class="mt-5 text-4xl sm:text-5xl lg:text-6xl tracking-tight font-semibold">Transforming Biomass into Value</h1>
+          <p class="mt-3 text-lg sm:text-xl text-gray-700">Extraction and Utilisation of Lignin as a Bio-Additive</p>
+          <p class="mt-4 max-w-xl text-gray-600">A KARE student research project exploring lignin extraction and controlled conversion pathways to investigate the potential of biomass-derived materials as bio-additives for compression-ignition engines.</p>
+          <div class="mt-7 flex flex-wrap gap-2.5">
+            <a class="inline-flex items-center gap-1.5 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-700" href="#technology">Explore our research <svg width="16" height="16" viewBox="0 0 16 16"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a class="inline-flex items-center gap-1.5 rounded-lg ring-1 ring-black/10 px-4 py-2 text-sm hover:bg-black/[0.02]" href="assets/regen-pavillion-poster.pdf" target="_blank" rel="noopener">View research poster <svg width="16" height="16" viewBox="0 0 16 16"><path d="M8 2v8M5 7l3 3 3-3M3 12v2h10v-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+          <div class="mt-6 flex flex-wrap gap-2 text-xs text-gray-600">
+            <span class="rounded-full ring-1 ring-black/5 px-2.5 py-1">Kalasalingam Academy of Research and Education</span>
+            <span class="rounded-full ring-1 ring-black/5 px-2.5 py-1">Interdisciplinary team</span>
+            <span class="rounded-full ring-1 ring-black/5 px-2.5 py-1">Planned blend limit: 20%</span>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="absolute -inset-x-10 -top-10 -bottom-10 bg-[radial-gradient(600px_400px_at_70%_20%,rgba(34,197,94,.08),transparent)] pointer-events-none"></div>
+          <div class="relative glass-card rounded-3xl overflow-hidden ring-soft">
+            <picture>
+              <source type="image/webp" srcset="assets/methodology-portrait-700.webp 700w, assets/methodology-portrait-1000.webp 1000w" sizes="(max-width:1024px) 90vw, 40vw">
+              <img src="assets/methodology-portrait.png" alt="Research workflow illustration" class="w-full h-full object-cover aspect-[4/5]">
+            </picture>
+            <div class="absolute bottom-3 left-3 right-3 flex flex-wrap gap-2">
+              <span class="glass rounded-full px-2.5 py-1 text-xs">Lignin extraction</span>
+              <span class="glass rounded-full px-2.5 py-1 text-xs">Controlled pyrolysis</span>
+              <span class="glass rounded-full px-2.5 py-1 text-xs">CI engine evaluation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="border-t border-black/5">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 sm:py-16 lg:py-20">
+      <div class="max-w-2xl">
+        <div class="text-xs tracking-[.18em] uppercase text-gray-500">01 · About</div>
+        <h2 class="mt-3 text-2xl sm:text-3xl lg:text-4xl tracking-tight font-semibold">Turning biomass lignin into a fuel research question</h2>
+        <p class="mt-4 text-gray-600">Lignin is a carbon-rich aromatic component of plant biomass. This project will investigate whether lignin-derived pyrolysis liquid can be assessed as a bio-additive in diesel blends, with suitability determined through fuel-property and engine testing.</p>
+      </div>
+      <div class="mt-8 grid md:grid-cols-3 gap-4">
+        <article class="glass-card rounded-2xl p-6 ring-soft">
+          <div class="h-9 w-9 rounded-xl bg-emerald-50 text-emerald-700 grid place-items-center">A</div>
+          <h3 class="mt-4 font-medium">The challenge</h3>
+          <p class="mt-2 text-sm text-gray-600">Diesel engines depend on petroleum-based fuels. Alternative components require careful assessment of physicochemical properties, compatibility, combustion and emissions.</p>
+        </article>
+        <article class="glass-card rounded-2xl p-6 ring-soft">
+          <div class="h-9 w-9 rounded-xl bg-emerald-50 text-emerald-700 grid place-items-center">B</div>
+          <h3 class="mt-4 font-medium">The approach</h3>
+          <p class="mt-2 text-sm text-gray-600">Connect lignin extraction and controlled pyrolysis with liquid-product characterization, selected diesel-blend preparation and comparative CI-engine evaluation.</p>
+        </article>
+        <article class="glass-card rounded-2xl p-6 ring-soft">
+          <div class="h-9 w-9 rounded-xl bg-emerald-50 text-emerald-700 grid place-items-center">C</div>
+          <h3 class="mt-4 font-medium">The potential</h3>
+          <p class="mt-2 text-sm text-gray-600">Explore a value-added use for biomass-derived lignin while making no assumptions about engine benefits before experimental evidence is available.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="technology" class="border-t border-black/5">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 sm:py-16 lg:py-20">
+      <div class="max-w-2xl">
+        <div class="text-xs tracking-[.18em] uppercase text-gray-500">02 · Technology & Methodology</div>
+        <h2 class="mt-3 text-2xl sm:text-3xl lg:text-4xl tracking-tight font-semibold">From biomass preparation to engine evaluation</h2>
+        <p class="mt-4 text-gray-600">The eight stages below summarize the proposed research framework.</p>
+      </div>
+      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        <div class="glass-card rounded-2xl p-5 ring-soft"><div class="text-xs text-emerald-700">STEP 01</div><div class="mt-2 font-medium">Biomass selection & preparation</div><p class="mt-1.5 text-sm text-gray-600">Select, clean, dry and prepare feedstock.</p><span class="mt-3 inline-block text-[11px] uppercase tracking-wide text-amber-700">Proposed</span></div>
+        <div class="glass-card rounded-2xl p-5 ring-soft"><div class="text-xs text-emerald-700">STEP 02</div><div class="mt-2 font-medium">Lignin extraction</div><p class="mt-1.5 text-sm text-gray-600">Separate and recover lignin.</p><span class="mt-3 inline-block text-[11px] uppercase tracking-wide text-amber-700">Proposed</span></div>
+        <div class="glass-card rounded-2xl p-5 ring-soft"><div class="text-xs text-emerald-700">STEP 03</div><div class="mt-2 font-medium">Controlled pyrolysis</div><p class="mt-1.5 text-sm text-gray-600">Convert lignin to liquid products.</p><span class="mt-3 inline-block text-[11px] uppercase tracking-wide text-amber-700">Proposed</span></div>
+        <div class="glass-card rounded-2xl p-5 ring-soft"><div class="text-xs text-emerald-700">STEP 04</div><div class="mt-2 font-medium">Product characterization</div><p class="mt-1.5 text-sm text-gray-600">Density, viscosity, CV, flash point, composition.</p><span class="mt-3 inline-block text-[11px] uppercase tracking-wide text-amber-700">Proposed</span></div>
+        <div class="glass-card rounded-2xl p-5 ring-soft"><div class="text-xs text-emerald-700">STEP 05</div><div class="mt-2 font-medium">Diesel blend preparation</div><p class="mt-1.5 text-sm text-gray-600">Up to 20% after suitability checks.</p><span class="mt-3 inline-block text-[11px] uppercase tracking-wide text-amber-700">Proposed</span></div>
+        <div class="glass-card rounded-2xl p-5 ring-soft"><div class="text-xs text-emerald-700">STEP 06</div><div class="mt-2 font-medium">CI engine testing</div><p class="mt-1.5 text-sm text-gray-600">Compare blends with diesel.</p><span class="mt-3 inline-block text-[11px] uppercase tracking-wide text-amber-700">Proposed</span></div>
+        <div class="glass-card rounded-2xl p-5 ring-soft"><div class="text-xs text-emerald-700">STEP 07</div><div class="mt-2 font-medium">Performance & combustion</div><p class="mt-1.5 text-sm text-gray-600">BTE, SFC, pressure, HRR, ignition delay.</p><span class="mt-3 inline-block text-[11px] uppercase tracking-wide text-amber-700">Proposed</span></div>
+        <div class="glass-card rounded-2xl p-5 ring-soft"><div class="text-xs text-emerald-700">STEP 08</div><div class="mt-2 font-medium">Emission assessment</div><p class="mt-1.5 text-sm text-gray-600">CO, HC, NOx, smoke.</p><span class="mt-3 inline-block text-[11px] uppercase tracking-wide text-amber-700">Proposed</span></div>
+      </div>
+      <div class="mt-6 rounded-2xl ring-1 ring-amber-500/20 bg-amber-50/60 p-4 text-sm text-amber-900">Pyrolysis oil is not automatically equivalent to diesel. Fuel compatibility and suitability must be assessed before engine testing. The 20% value is the planned maximum blend limit, not a proven optimum.</div>
+    </div>
+  </section>
+
+  <section id="research" class="border-t border-black/5">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 sm:py-16 lg:py-20">
+      <div class="grid lg:grid-cols-2 gap-8">
+        <div>
+          <div class="text-xs tracking-[.18em] uppercase text-gray-500">03 · Research</div>
+          <h2 class="mt-3 text-2xl sm:text-3xl tracking-tight font-semibold">The research in brief</h2>
+          <p class="mt-4 text-gray-600">Official abstract submitted to the Renewable Energy Research Poster Challenge 2026.</p>
+          <div class="mt-6 glass-card rounded-2xl p-6 ring-soft">
+            <h3 class="font-medium">Extraction and Utilisation of Lignin as Bio-Additive in a Compression Ignition Engine Fuelled with Diesel Fuel</h3>
+            <p class="mt-2 text-sm text-gray-600">Srinath Vatchavari Venkateshan, Aarya Brat Shankar & R. Bhuvaneshwaran · KARE</p>
+            <p class="mt-4 text-sm text-gray-600">To extract lignin from suitable biomass, produce bio-additives through controlled pyrolysis, and evaluate their physicochemical properties and suitability for blending with diesel at different dosage levels.</p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <a class="inline-flex items-center gap-1.5 rounded-lg bg-emerald-600 px-3.5 py-1.5 text-sm text-white hover:bg-emerald-700" href="assets/regen-pavillion-abstract.pdf" download>Download abstract</a>
+              <a class="inline-flex items-center gap-1.5 rounded-lg ring-1 ring-black/10 px-3.5 py-1.5 text-sm hover:bg-black/[0.02]" href="assets/regen-pavillion-abstract.pdf" target="_blank" rel="noopener">View abstract</a>
+            </div>
+          </div>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-3">
+          <div class="glass-card rounded-2xl p-5 ring-soft"><div class="font-medium">Biomass processing</div><p class="mt-1.5 text-sm text-gray-600">Feedstock selection, cleaning, drying and preparation.</p></div>
+          <div class="glass-card rounded-2xl p-5 ring-soft"><div class="font-medium">Lignin extraction</div><p class="mt-1.5 text-sm text-gray-600">Separation and recovery using the selected method.</p></div>
+          <div class="glass-card rounded-2xl p-5 ring-soft"><div class="font-medium">Conversion pathways</div><p class="mt-1.5 text-sm text-gray-600">Controlled pyrolysis to investigate liquid products.</p></div>
+          <div class="glass-card rounded-2xl p-5 ring-soft"><div class="font-medium">Product characterisation</div><p class="mt-1.5 text-sm text-gray-600">Density, viscosity, calorific value, flash point, composition.</p></div>
+        </div>
+      </div>
+      <div class="mt-6 rounded-2xl ring-1 ring-sky-500/20 bg-sky-50/60 p-4 text-sm text-sky-900">Research in progress. No experimental results are claimed on this website. Quantitative findings will be added only when measurements and data analysis are available.</div>
+    </div>
+  </section>
+
+  <section id="impact" class="border-t border-black/5">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 sm:py-16 lg:py-20">
+      <div class="max-w-2xl">
+        <div class="text-xs tracking-[.18em] uppercase text-gray-500">04 · Impact</div>
+        <h2 class="mt-3 text-2xl sm:text-3xl tracking-tight font-semibold">Waste-to-value, to be evaluated</h2>
+        <p class="mt-4 text-gray-600">Biomass valorisation could support a more circular use of agricultural and plant residues. Evidence first.</p>
+      </div>
+      <div class="mt-8 grid md:grid-cols-3 gap-3">
+        <article class="glass-card rounded-2xl p-6 ring-soft"><div class="font-medium">Waste valorisation</div><p class="mt-2 text-sm text-gray-600">Explore value-added use for biomass residues starting from lignin recovery.</p></article>
+        <article class="glass-card rounded-2xl p-6 ring-soft"><div class="font-medium">Renewable fuel research</div><p class="mt-2 text-sm text-gray-600">Investigate lignin-derived liquids as partial diesel additives, subject to validation.</p></article>
+        <article class="glass-card rounded-2xl p-6 ring-soft"><div class="font-medium">Circular bioeconomy</div><p class="mt-2 text-sm text-gray-600">Connect biomass processing, materials and energy research.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="team" class="border-t border-black/5">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 sm:py-16 lg:py-20">
+      <div class="max-w-2xl">
+        <div class="text-xs tracking-[.18em] uppercase text-gray-500">05 · Team</div>
+        <h2 class="mt-3 text-2xl sm:text-3xl tracking-tight font-semibold">Research team & mentor</h2>
+        <p class="mt-4 text-gray-600">Kalasalingam Academy of Research and Education (KARE), Krishnankoil, Tamil Nadu, India.</p>
+      </div>
+      <div class="mt-8 grid sm:grid-cols-2 gap-3">
+        <div class="glass-card rounded-2xl p-5 ring-soft flex items-start gap-3"><div class="h-10 w-10 rounded-xl bg-emerald-50 text-emerald-700 grid place-items-center">SV</div><div><div class="font-medium">Srinath Vatchavari Venkateshan</div><div class="text-sm text-gray-600">Mechanical Engineering</div><a class="text-sm text-emerald-700" href="mailto:9926009061&#64;klu&#46;ac&#46;in">9926009061&#64;klu&#46;ac&#46;in</a></div></div>
+        <div class="glass-card rounded-2xl p-5 ring-soft flex items-start gap-3"><div class="h-10 w-10 rounded-xl bg-emerald-50 text-emerald-700 grid place-items-center">AS</div><div><div class="font-medium">Aarya Brat Shankar</div><div class="text-sm text-gray-600">Biotechnology</div><a class="text-sm text-emerald-700" href="mailto:9926001001&#64;klu&#46;ac&#46;in">9926001001&#64;klu&#46;ac&#46;in</a></div></div>
+        <div class="glass-card rounded-2xl p-5 ring-soft flex items-start gap-3"><div class="h-10 w-10 rounded-xl bg-emerald-50 text-emerald-700 grid place-items-center">RB</div><div><div class="font-medium">R. Bhuvaneshwaran</div><div class="text-sm text-gray-600">Electrical and Electronics Engineering</div><a class="text-sm text-emerald-700" href="mailto:9926006025&#64;klu&#46;ac&#46;in">9926006025&#64;klu&#46;ac&#46;in</a></div></div>
+        <div class="glass-card rounded-2xl p-5 ring-soft flex items-start gap-3"><div class="h-10 w-10 rounded-xl bg-emerald-50 text-emerald-700 grid place-items-center">SG</div><div><div class="font-medium">Dr. S. Gowthaman</div><div class="text-sm text-gray-600">Associate Professor, Mechanical Engineering</div><a class="text-sm text-emerald-700" href="mailto:gowthaman&#46;s&#64;klu&#46;ac&#46;in">gowthaman&#46;s&#64;klu&#46;ac&#46;in</a></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="resources" class="border-t border-black/5">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 sm:py-16 lg:py-20">
+      <div class="max-w-2xl">
+        <div class="text-xs tracking-[.18em] uppercase text-gray-500">06 · Resources</div>
+        <h2 class="mt-3 text-2xl sm:text-3xl tracking-tight font-semibold">Poster & abstract</h2>
+      </div>
+      <div class="mt-8 grid md:grid-cols-2 gap-4">
+        <article class="glass-card rounded-2xl overflow-hidden ring-soft">
+          <picture>
+            <source type="image/webp" srcset="assets/poster-preview-600.webp 600w, assets/poster-preview-900.webp 900w" sizes="(max-width:768px) 90vw, 40vw">
+            <img src="assets/poster-preview.png" alt="Poster preview" class="w-full aspect-[3/4] object-cover object-top">
+          </picture>
+          <div class="p-5">
+            <div class="font-medium">Research poster</div>
+            <p class="mt-1 text-sm text-gray-600">Lignin as a bio-additive in a compression ignition engine</p>
+            <div class="mt-4 flex gap-2">
+              <a class="rounded-lg bg-emerald-600 px-3.5 py-1.5 text-sm text-white hover:bg-emerald-700" href="assets/regen-pavillion-poster.pdf" download>Download</a>
+              <a class="rounded-lg ring-1 ring-black/10 px-3.5 py-1.5 text-sm hover:bg-black/[0.02]" href="assets/regen-pavillion-poster.pdf" target="_blank" rel="noopener">View</a>
+            </div>
+          </div>
+        </article>
+        <article class="glass-card rounded-2xl overflow-hidden ring-soft">
+          <picture>
+            <source type="image/webp" srcset="assets/abstract-preview-600.webp 600w, assets/abstract-preview-900.webp 900w" sizes="(max-width:768px) 90vw, 40vw">
+            <img src="assets/abstract-preview.png" alt="Abstract preview" class="w-full aspect-[3/4] object-cover object-top">
+          </picture>
+          <div class="p-5">
+            <div class="font-medium">Abstract submission</div>
+            <p class="mt-1 text-sm text-gray-600">Renewable Energy Research Poster Challenge 2026</p>
+            <div class="mt-4 flex gap-2">
+              <a class="rounded-lg bg-emerald-600 px-3.5 py-1.5 text-sm text-white hover:bg-emerald-700" href="assets/regen-pavillion-abstract.pdf" download>Download</a>
+              <a class="rounded-lg ring-1 ring-black/10 px-3.5 py-1.5 text-sm hover:bg-black/[0.02]" href="assets/regen-pavillion-abstract.pdf" target="_blank" rel="noopener">View</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="border-t border-black/5">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 sm:py-16 lg:py-20">
+      <div class="grid lg:grid-cols-2 gap-6">
+        <div class="glass-card rounded-2xl p-6 ring-soft">
+          <div class="text-xs tracking-[.18em] uppercase text-gray-500">07 · Contact</div>
+          <h2 class="mt-3 text-2xl tracking-tight font-semibold">Get in touch</h2>
+          <p class="mt-3 text-gray-600">For questions about the project, methodology or potential collaboration.</p>
+          <div class="mt-6 space-y-3 text-sm">
+            <div><div class="font-medium">Srinath Vatchavari Venkateshan · Presenting author (Mechanical Engineering)</div><a class="text-emerald-700" href="mailto:9926009061&#64;klu&#46;ac&#46;in">9926009061&#64;klu&#46;ac&#46;in</a></div>
+            <div><div class="font-medium">Aarya Brat Shankar · Team member (Biotechnology)</div><a class="text-emerald-700" href="mailto:9926001001&#64;klu&#46;ac&#46;in">9926001001&#64;klu&#46;ac&#46;in</a></div>
+            <div><div class="font-medium">R. Bhuvaneshwaran · Team member (Electrical and Electronics Engineering)</div><a class="text-emerald-700" href="mailto:9926006025&#64;klu&#46;ac&#46;in">9926006025&#64;klu&#46;ac&#46;in</a></div>
+            <div><div class="font-medium">Dr. S. Gowthaman · Project mentor (Mechanical Engineering)</div><a class="text-emerald-700" href="mailto:gowthaman&#46;s&#64;klu&#46;ac&#46;in">gowthaman&#46;s&#64;klu&#46;ac&#46;in</a></div>
+          </div>
+          <div class="mt-6 flex flex-wrap gap-2">
+            <a class="inline-flex items-center gap-1.5 rounded-lg bg-emerald-600 px-4 py-2 text-sm text-white hover:bg-emerald-700" href="mailto:9926009061&#64;klu&#46;ac&#46;in">Email presenting author</a>
+            <a class="inline-flex items-center gap-1.5 rounded-lg ring-1 ring-black/10 px-4 py-2 text-sm hover:bg-black/[0.02]" href="mailto:gowthaman&#46;s&#64;klu&#46;ac&#46;in">Email mentor</a>
+          </div>
+        </div>
+        <div class="glass-card rounded-2xl p-6 ring-soft">
+          <h3 class="font-medium">Acknowledgement</h3>
+          <p class="mt-2 text-sm text-gray-600">The team acknowledges Kalasalingam Academy of Research and Education (KARE) for institutional support and expresses gratitude to Dr. S. Gowthaman for guidance and encouragement.</p>
+          <h3 class="mt-6 font-medium">Collaboration areas</h3>
+          <p class="mt-2 text-sm text-gray-600">Lignin extraction · controlled pyrolysis · fuel characterisation · CI engine testing · life-cycle assessment.</p>
+          <p class="mt-4 text-xs text-gray-500">No partnerships, funding or commercial agreements are claimed on this website.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="border-t border-black/5">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+    <div>
+      <div class="font-medium">REGen Pavilion</div>
+      <div class="text-sm text-gray-600">Bioenergy & Waste-to-Energy · KARE, Tamil Nadu, India</div>
+    </div>
+    <div class="text-sm text-gray-500">Research project in progress · October 2026</div>
+  </div>
+</footer>
+<script>
+  const toggle=document.getElementById('nav-toggle'), drawer=document.getElementById('nav-drawer'), closeBtn=document.getElementById('nav-close');
+  const open=()=>{drawer.classList.remove('hidden');document.body.classList.add('overflow-hidden');};
+  const close=()=>{drawer.classList.add('hidden');document.body.classList.remove('overflow-hidden');};
+  toggle?.addEventListener('click',open); closeBtn?.addEventListener('click',close); drawer?.addEventListener('click',e=>{if(e.target===drawer)close();});
+  drawer?.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));
+</script>
+</body>
+</html>

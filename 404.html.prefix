@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#06110e">
+<title>Page not found | REGen Pavilion</title>
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<style>
+:root{
+  --bg:#06110e;--panel:rgba(10,32,25,0.68);--accent:#43e69a;--accent2:#8bf5c1;
+  --cyan:#63d8d1;--amber:#e9aa56;--text:#f4faf6;--text2:#b3c5bc;--muted:#82988d;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;min-height:100vh;display:grid;place-items:center;padding:28px;
+  color:var(--text);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:
+    radial-gradient(ellipse 60% 50% at 85% 0%,rgba(67,230,154,.16),transparent 60%),
+    radial-gradient(ellipse 55% 45% at 0% 100%,rgba(99,216,209,.12),transparent 60%),
+    linear-gradient(160deg,var(--bg),#081713 55%,#050d0b);
+  -webkit-font-smoothing:antialiased;
+}
+.card{
+  position:relative;width:min(580px,100%);padding:clamp(30px,6vw,52px);
+  text-align:center;border-radius:26px;
+  background:rgba(10,32,25,0.68);
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 30px 80px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.06);
+  backdrop-filter:blur(20px) saturate(140%);
+  -webkit-backdrop-filter:blur(20px) saturate(140%);
+  overflow:hidden;
+}
+.card::before{
+  content:"";position:absolute;inset:-40% 40% 60% -30%;pointer-events:none;
+  background:radial-gradient(circle,rgba(67,230,154,.24),transparent 65%);
+  filter:blur(20px);
+}
+.mark{
+  position:relative;display:grid;place-items:center;width:62px;height:62px;
+  margin:0 auto 20px;border-radius:18px;color:#04120d;font-size:1.7rem;font-weight:800;
+  background:linear-gradient(140deg,#8bf5c1,#43e69a);
+  box-shadow:0 10px 26px rgba(46,205,140,.4);
+}
+.mark::after{
+  content:"";position:absolute;top:-4px;right:-4px;width:12px;height:12px;
+  border-radius:50%;background:var(--amber);box-shadow:0 0 0 4px rgba(6,17,14,.8);
+}
+.code{
+  position:relative;font-size:.76rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--accent);font-weight:800;
+}
+h1{
+  position:relative;font-size:clamp(1.8rem,5vw,2.5rem);letter-spacing:-.03em;
+  margin:12px 0 14px;line-height:1.08;
+}
+p{position:relative;color:var(--text2);margin:0 auto 28px;max-width:42ch;line-height:1.65}
+.actions{position:relative;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{
+  border-radius:12px;padding:13px 20px;text-decoration:none;font-weight:700;
+  font-size:.93rem;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+}
+.primary{
+  color:#04120d;background:linear-gradient(135deg,#8bf5c1,#43e69a);
+  box-shadow:0 12px 30px rgba(67,230,154,.28);
+}
+.secondary{
+  color:var(--text);border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.05);
+}
+.btn:hover{transform:translateY(-2px)}
+.secondary:hover{border-color:rgba(67,230,154,.5)}
+.btn:focus-visible{outline:2px solid var(--accent2);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){.btn{transition:none}.btn:hover{transform:none}}
+</style>
+</head>
+<body>
+<main class="card">
+  <div class="mark" aria-hidden="true">R</div>
+  <div class="code">Error 404</div>
+  <h1>This page could not be found</h1>
+  <p>The page you requested does not exist or may have moved. Return to the REGen Pavilion research site below.</p>
+  <div class="actions">
+    <a class="btn primary" href="/">Back to home</a>
+    <a class="btn secondary" href="/#references">View references</a>
+  </div>
+</main>
+</body>
+</html>
