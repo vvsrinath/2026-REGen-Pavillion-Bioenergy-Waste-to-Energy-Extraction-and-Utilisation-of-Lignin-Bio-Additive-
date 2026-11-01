@@ -3,8 +3,8 @@
 A responsive research website for the project **“Extraction and Utilisation of Lignin as Bio-Additive in a
 Compression Ignition Engine Fuelled with Diesel Fuel — An Approach to Improve Fuel Properties.”**
 
-Built with React, Vite, Tailwind CSS and Lucide icons. The site is a single-page research programme with a
-separate privacy page, and deploys as a static site on Netlify.
+Built with React, Vite, Tailwind CSS and Lucide icons. The site is a single-page research programme with
+separate privacy and ownership pages, and deploys as a static site on Netlify.
 
 > **Content integrity:** the site describes proposed research. It does not claim completed experiments,
 > measured performance, emissions reductions, funding, partnerships or commercial outcomes. Charts and the
@@ -47,7 +47,7 @@ netlify deploy --prod --dir dist
 ### SPA routing
 
 `public/_redirects` and the `[[redirects]]` rule in `netlify.toml` send unknown paths to `index.html`, so
-React Router can serve `/privacy` and the 404 page without a server.
+React Router can serve `/privacy`, `/ownership` and the 404 page without a server.
 
 ---
 
@@ -78,8 +78,9 @@ React Router can serve `/privacy` and the 404 page without a server.
 3. **Enable form submissions.** The collaboration form posts to Netlify Forms:
    - `public/__forms.html` contains the hidden static form used by Netlify for detection.
    - The React form in `src/components/Collaboration.jsx` submits URL-encoded data to `/`.
-   - After the first deploy, confirm **Forms → collaboration** exists in the Netlify dashboard and add a
-     notification email or integration there.
+    - After the first deploy, confirm **Forms → collaboration** exists in the Netlify dashboard, then add an
+       **Email notification** addressed to your verified inbox. Form submissions are stored by Netlify, but
+       they will not arrive by email until this notification is configured in the site dashboard.
    - Form fields must stay in sync between `public/__forms.html` and the React component.
 
 4. **Verify content with the team and mentor.** In particular:
@@ -105,6 +106,7 @@ React Router can serve `/privacy` and the 404 page without a server.
 .
 ├── index.html                  Vite entry, SEO/OG metadata, JSON-LD
 ├── netlify.toml                Build, SPA redirects, security headers, caching
+├── LICENSE                     Proprietary ownership and copyright notice
 ├── vite.config.js
 ├── tailwind.config.js
 ├── postcss.config.js
@@ -118,11 +120,11 @@ React Router can serve `/privacy` and the 404 page without a server.
 ├── src/
 │   ├── App.jsx                 Routes, skip link, shared header/footer
 │   ├── main.jsx
-│   ├── index.css               Tailwind layers, fluid type, component classes
+│   ├── index.css               Tailwind layers, responsive type, component classes
 │   ├── data/content.js         Verified research content and planned programme data
 │   ├── components/
 │   │   ├── Header.jsx          Sticky nav, active-section tracking, accessible drawer
-│   │   ├── Hero.jsx            Supplied hero background + controlled overlay
+│   │   ├── Hero.jsx            Responsive project introduction and status
 │   │   ├── ResearchOverview.jsx
 │   │   ├── Workflow.jsx        8-stage proposed workflow
 │   │   ├── Methodology.jsx     Interactive methodology accordion
@@ -138,6 +140,7 @@ React Router can serve `/privacy` and the 404 page without a server.
 │   ├── pages/
 │   │   ├── Home.jsx
 │   │   ├── Privacy.jsx
+│   │   ├── Ownership.jsx       IP, copyright and research ownership statement
 │   │   └── NotFound.jsx
 │   └── …
 ├── legacy/index-v7.html        Previous static single-page site, kept for reference
@@ -150,12 +153,12 @@ React Router can serve `/privacy` and the 404 page without a server.
 
 ## Responsive design notes
 
-- Mobile-first layout with fluid `clamp()` typography and section spacing.
+- Mobile-first layout with breakpoint-based heading sizes and fluid section spacing.
 - Breakpoints cover 320 px through 1920 px+; layouts reorganise rather than simply shrink.
 - Navigation becomes a keyboard-accessible drawer below 1280 px.
 - Tables switch to stacked cards on mobile; the desktop table is horizontally scrollable.
 - Charts use responsive HTML/CSS rather than fixed-width images.
-- Hero uses responsive `srcset`/`sizes`; below-the-fold images are lazy-loaded.
+- Hero and poster use responsive `srcset`/`sizes`; below-the-fold images are lazy-loaded.
 - `prefers-reduced-motion` disables reveal and smooth-scroll animation.
 - The site prevents horizontal overflow with `overflow-x: clip`.
 
@@ -183,6 +186,10 @@ Only these research documents are currently published:
 - `public/assets/regen-pavillion-abstract.pdf` — submitted abstract.
 - `public/assets/regen-pavillion-poster.pdf` — research poster.
 
+The poster includes charts labelled as representative / expected trends. Those graphics are illustrative
+and must not be interpreted as measured project results. Its workflow also includes example biomass species;
+the website's specified project feedstock remains *Prosopis juliflora*.
+
 The presentation card is intentionally marked **Not available**. Do not add placeholder links.
 
 ## SEO checklist
@@ -196,8 +203,22 @@ The presentation card is intentionally marked **Not available**. Do not add plac
 - [ ] Replace `YOUR-SITE` with the live Netlify URL before launch
 - [ ] Verify the final social preview with Netlify’s deploy preview or a card validator
 
-## Licence / attribution
+## Ownership, IP and licence
 
-The research content and institutional identity belong to the project team and KARE. Third-party
-references link to their DOI records. Fonts (Inter, Manrope) and Lucide icons are open-source packages
-installed via npm.
+The REGen Pavilion research programme — including its research concept, research direction, methods,
+research outputs, downloadable documents and website content — is owned and managed solely by **Srinath
+Vatchavari Venkateshan**. Copyright © 2026 Srinath Vatchavari Venkateshan. All rights reserved.
+
+Aarya Brat Shankar and R. Bhuvaneshwaran are acknowledged supporting contributors. Dr. S. K. Gowthaman is
+the faculty mentor. Their involvement, acknowledgement or author credit does **not** grant ownership,
+copyright or other rights in the research or its outputs.
+
+No part of the research, documents or site may be reproduced, adapted, distributed or used commercially
+without prior written permission from the owner, except where applicable law permits it. See `LICENSE` and
+the public `/ownership` page. This wording records the project’s position; it does not override applicable
+institutional policy or law, and any separate written agreement signed by the owner takes precedence.
+
+Third-party references link to their DOI records and remain the property of their respective authors and
+publishers. Fonts (Inter, Manrope) and Lucide icons are open-source packages installed via npm and retain
+their own licences. KARE is referenced as the institutional affiliation, not as an owner of the project’s
+IP.

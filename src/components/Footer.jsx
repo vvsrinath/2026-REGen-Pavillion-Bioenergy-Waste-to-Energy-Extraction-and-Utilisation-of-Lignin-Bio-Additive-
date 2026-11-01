@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { navLinks, research } from "../data/content";
+import { navLinks, ownership, research } from "../data/content";
 import Brand from "./Brand";
 import Icon from "./Icon";
 
@@ -45,7 +45,10 @@ export default function Footer() {
             <ul className="mt-4 space-y-2.5 text-sm">
               {navLinks.slice(0, 7).map((link) => (
                 <li key={link.href}>
-                  <a href={sectionHref(link.href)} className="text-forest-100/75 transition-colors hover:text-white">
+                  <a
+                    href={sectionHref(link.href)}
+                    className="inline-flex min-h-[2rem] items-center py-0.5 text-forest-100/75 transition-colors hover:text-white"
+                  >
                     {link.label}
                   </a>
                 </li>
@@ -64,13 +67,16 @@ export default function Footer() {
                     <a
                       href={link.href}
                       download
-                      className="inline-flex items-center gap-1.5 text-forest-100/75 transition-colors hover:text-white"
+                      className="inline-flex min-h-[2rem] items-center gap-1.5 py-0.5 text-forest-100/75 transition-colors hover:text-white"
                     >
                       {link.label}
                       <Icon name="Download" className="h-3.5 w-3.5" />
                     </a>
                   ) : (
-                    <a href={sectionHref(link.href)} className="text-forest-100/75 transition-colors hover:text-white">
+                    <a
+                      href={sectionHref(link.href)}
+                      className="inline-flex min-h-[2rem] items-center py-0.5 text-forest-100/75 transition-colors hover:text-white"
+                    >
                       {link.label}
                     </a>
                   )}
@@ -88,7 +94,7 @@ export default function Footer() {
             </p>
             <a
               href={sectionHref("#collaborate")}
-              className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-lime-300 hover:text-lime-200"
+              className="mt-2 inline-flex min-h-[2.75rem] items-center gap-1.5 text-sm font-semibold text-lime-300 hover:text-lime-200"
             >
               Open enquiry form
               <Icon name="ArrowUpRight" className="h-4 w-4" />
@@ -116,24 +122,36 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 text-xs text-forest-100/60 sm:flex-row sm:items-center sm:justify-between">
-          <p>
-            © {year} REGen Pavilion · {research.affiliation}
-          </p>
-          <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+        <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 text-xs text-forest-100/70 sm:flex-row sm:items-center sm:justify-between">
+          <p>© {year} {ownership.ownerName}. All rights reserved.</p>
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-1">
             <span>Research in progress · {research.updated}</span>
-            <Link to="/privacy" className="hover:text-white">
+            <Link to="/ownership" className="inline-flex min-h-[2rem] items-center py-0.5 hover:text-white">
+              Ownership & copyright
+            </Link>
+            <Link to="/privacy" className="inline-flex min-h-[2rem] items-center py-0.5 hover:text-white">
               Privacy policy
             </Link>
-            <a href={sectionHref("#home")} className="hover:text-white">
+            <a href={sectionHref("#home")} className="inline-flex min-h-[2rem] items-center py-0.5 hover:text-white">
               Back to top
             </a>
           </div>
         </div>
-        <p className="mt-4 max-w-4xl text-[0.6875rem] leading-relaxed text-forest-100/60">
+        <p className="mt-4 max-w-4xl text-[0.6875rem] leading-relaxed text-forest-100/70">
+          <strong className="font-semibold text-forest-100">Intellectual property and copyright:</strong>{" "}
+          the research, documents and website content are owned and managed solely by {ownership.ownerName}.
+          Supporting contributors and the faculty mentor are acknowledged for their support and hold no IP or
+          copyright ownership.{" "}
+          <Link to="/ownership" className="font-semibold text-lime-300 underline underline-offset-2 hover:text-lime-200">
+            Full ownership statement
+          </Link>
+          .
+        </p>
+        <p className="mt-3 max-w-4xl text-[0.6875rem] leading-relaxed text-forest-100/70">
           This website describes proposed research. It does not claim completed experiments, measured
           performance, funding, partnerships or commercial outcomes. Illustrative figures and the planned
-          blend matrix are labelled and are not experimental findings.
+          blend matrix are labelled and are not experimental findings. Institutional affiliation:{" "}
+          {research.affiliation}.
         </p>
       </div>
     </footer>

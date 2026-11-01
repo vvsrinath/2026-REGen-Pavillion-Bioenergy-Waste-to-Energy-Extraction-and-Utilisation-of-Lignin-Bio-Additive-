@@ -53,7 +53,7 @@ function FuelPropertyChart() {
                 <GhostBar />
               </div>
               <div className="grid grid-cols-[4.4rem_1fr] items-center gap-2">
-                <span className="text-[0.625rem] font-semibold uppercase tracking-[0.08em] text-lime-700">
+                <span className="text-[0.625rem] font-semibold uppercase tracking-[0.08em] text-lime-800">
                   Blend
                 </span>
                 <GhostBar />
@@ -179,7 +179,7 @@ function MeasurementDashboard() {
                 <p className="text-sm font-semibold text-ink">{item.property}</p>
                 <p className="mt-0.5 text-[0.6875rem] text-muted">{item.method} · {item.unit}</p>
               </div>
-              <span className="shrink-0 rounded-full border border-amber-500/25 bg-amber-50 px-2 py-0.5 text-[0.5625rem] font-semibold uppercase tracking-[0.06em] text-amber-800">
+              <span className="shrink-0 rounded-full border border-amber-500/25 bg-amber-50 px-2 py-0.5 text-[0.625rem] font-semibold uppercase tracking-[0.06em] text-amber-800">
                 To measure
               </span>
             </div>
@@ -285,7 +285,7 @@ function Timeline() {
                 <span className="text-[0.625rem] font-semibold uppercase tracking-[0.1em] text-forest-600">
                   {item.period}
                 </span>
-                <StatusBadge status={item.status} className="!px-1.5 !py-0.5 !text-[0.5rem]" />
+                <StatusBadge status={item.status} className="!px-2 !py-0.5 !text-[0.625rem]" />
               </div>
               <h4 className="mt-1.5 text-[0.8125rem] font-semibold leading-snug text-ink">{item.title}</h4>
               <p className="mt-1 text-[0.6875rem] leading-relaxed text-muted">{item.text}</p>

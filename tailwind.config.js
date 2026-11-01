@@ -44,7 +44,10 @@ export default {
         lift: "0 24px 70px -34px rgba(11,61,46,.45)",
       },
       borderRadius: {
-        "4xl": "2rem",
+        xl: "0.375rem",
+        "2xl": "0.5rem",
+        "3xl": "0.5rem",
+        "4xl": "0.5rem",
       },
       maxWidth: {
         "8xl": "88rem",

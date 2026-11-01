@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
 import Privacy from "./pages/Privacy";
+import Ownership from "./pages/Ownership";
 import NotFound from "./pages/NotFound";
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/privacy" element={<Privacy />} />
+          <Route path="/ownership" element={<Ownership />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

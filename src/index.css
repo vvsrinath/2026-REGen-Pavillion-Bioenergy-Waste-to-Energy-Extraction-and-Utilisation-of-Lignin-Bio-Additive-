@@ -15,6 +15,7 @@
 
   html {
     scroll-behavior: smooth;
+    scrollbar-gutter: stable;
     -webkit-text-size-adjust: 100%;
   }
 
@@ -36,6 +37,12 @@
   :focus-visible {
     outline: 2px solid #2e7d32;
     outline-offset: 3px;
+  }
+
+  *,
+  *::before,
+  *::after {
+    letter-spacing: 0 !important;
   }
 
   section[id] {
@@ -71,29 +78,46 @@
 
   .display-1 {
     font-family: "Manrope Variable", Manrope, Inter, system-ui, sans-serif;
-    font-size: clamp(2.35rem, 5.1vw, 4.5rem);
+    font-size: 2.75rem;
     line-height: 1.04;
-    letter-spacing: -0.035em;
     font-weight: 700;
     text-wrap: balance;
   }
 
   .display-2 {
     font-family: "Manrope Variable", Manrope, Inter, system-ui, sans-serif;
-    font-size: clamp(1.8rem, 3.6vw, 3rem);
+    font-size: 1.8rem;
     line-height: 1.1;
-    letter-spacing: -0.028em;
     font-weight: 700;
     text-wrap: balance;
   }
 
   .display-3 {
     font-family: "Manrope Variable", Manrope, Inter, system-ui, sans-serif;
-    font-size: clamp(1.25rem, 2vw, 1.55rem);
+    font-size: 1.35rem;
     line-height: 1.25;
-    letter-spacing: -0.015em;
     font-weight: 650;
     text-wrap: balance;
+  }
+
+  @media (min-width: 40rem) {
+    .display-1 {
+      font-size: 3.5rem;
+    }
+
+    .display-2 {
+      font-size: 2.25rem;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .display-1 {
+      font-size: 4.25rem;
+    }
+
+    .display-2 {
+      font-size: 2.75rem;
+    }
   }
 
   .eyebrow {
@@ -114,11 +138,11 @@
   }
 
   .card {
-    @apply rounded-2xl border border-forest-900/10 bg-white shadow-soft;
+    @apply rounded-md border border-forest-900/10 bg-white;
   }
 
   .card-muted {
-    @apply rounded-2xl border border-forest-900/10 bg-soft;
+    @apply rounded-md border border-forest-900/10 bg-soft;
   }
 
   .chip {

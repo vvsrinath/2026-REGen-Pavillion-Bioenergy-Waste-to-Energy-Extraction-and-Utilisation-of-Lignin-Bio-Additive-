@@ -1,141 +1,86 @@
-import { research } from "../data/content";
 import Icon from "./Icon";
-
-const focusSteps = [
-  { icon: "Trees", label: "Feedstock", value: "Seemai Karuvelam (Prosopis juliflora)" },
-  { icon: "FlaskConical", label: "Recovery", value: "Lignin extraction and characterisation" },
-  { icon: "Flame", label: "Conversion", value: "Controlled pyrolysis to liquid products" },
-  { icon: "Gauge", label: "Evaluation", value: "Fuel-property and CI-engine assessment" },
-];
+import { research } from "../data/content";
 
 export default function Hero() {
   return (
-    <section id="home" className="relative isolate overflow-hidden bg-forest-950">
-      <picture className="absolute inset-0 -z-20">
-        <source
-          type="image/webp"
-          srcSet="/assets/hero-700.webp 700w, /assets/hero-1000.webp 1000w, /assets/hero-1400.webp 1400w, /assets/hero-1800.webp 1800w, /assets/hero-2400.webp 2400w"
-          sizes="100vw"
-        />
-        <img
-          src="/assets/hero-1400.webp"
-          alt="Seemai Karuvelam biomass and lignin biofuel research"
-          width="1774"
-          height="887"
-          fetchpriority="high"
-          decoding="async"
-          className="h-full w-full object-cover object-center"
-        />
-      </picture>
-
-      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-forest-950/95 via-forest-950/88 to-forest-900/55" />
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_75%_20%,rgba(167,209,41,0.14),transparent_45%)]" />
-      <div className="absolute inset-x-0 bottom-0 -z-10 h-32 bg-gradient-to-t from-forest-950/85 to-transparent" />
-
-      <div className="container-x relative flex flex-col justify-center py-14 sm:py-20 lg:min-h-[calc(100svh-4.25rem)] lg:py-24">
-        <div className="grid items-center gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:gap-14 xl:gap-20">
-          <div>
-            <span className="inline-flex items-center gap-2 rounded-full border border-lime-400/25 bg-lime-400/10 px-3.5 py-1.5 text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-lime-300">
-              <span className="h-1.5 w-1.5 rounded-full bg-lime-400" />
-              {research.label}
-            </span>
-
-            <h1 className="display-1 mt-6 text-white">
-              Turning Lignin into a{" "}
-              <span className="text-lime-400">Potential Bio-Additive</span> for Diesel Fuel
+    <section id="home" className="border-b border-forest-900/10 bg-white">
+      <div className="container-x py-10 sm:py-14 lg:py-20">
+        <div className="grid items-center gap-10 lg:grid-cols-[0.94fr_1.06fr] lg:gap-14 xl:gap-20">
+          <div className="max-w-2xl">
+            <div className="eyebrow">Bioenergy · Fuel research · KARE</div>
+            <h1 className="display-2 mt-5 max-w-2xl text-ink">
+              {research.title}
             </h1>
-
-            <p className="mt-6 max-w-2xl text-[1.05rem] leading-relaxed text-forest-100/85 sm:text-lg">
-              {research.heroText}
+            <p className="mt-5 max-w-xl text-[1.05rem] leading-relaxed text-muted sm:text-lg">
+              Extraction and utilisation of lignin from <em>Prosopis juliflora</em> (Seemai Karuvelam) for
+              fuel-property assessment and a carefully gated compression-ignition engine study.
             </p>
 
+            <div className="mt-6 inline-flex items-center gap-2 border-l-2 border-amber-500 pl-3 text-sm font-medium text-amber-800">
+              <span className="h-2 w-2 rounded-full bg-amber-500" />
+              Proposed experimental programme · No results reported
+            </div>
+
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <a href="#research" className="btn-lime w-full sm:w-auto">
-                Explore the Research
+              <a href="#research" className="btn-primary w-full sm:w-auto">
+                Explore the research
                 <Icon name="ArrowRight" className="h-4 w-4" />
               </a>
-              <a href="#collaborate" className="btn-ghost-light w-full sm:w-auto">
-                Collaborate With Us
+              <a href="#collaborate" className="btn-outline w-full sm:w-auto">
+                Discuss collaboration
                 <Icon name="ArrowUpRight" className="h-4 w-4" />
+              </a>
+              <a
+                href="/assets/regen-pavillion-poster.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-[2.75rem] items-center justify-center gap-2 px-2 text-sm font-semibold text-forest-800 underline decoration-forest-300 underline-offset-4 hover:decoration-forest-800"
+              >
+                View project poster
+                <Icon name="FileText" className="h-4 w-4" />
               </a>
             </div>
 
-            <dl className="mt-9 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-3 border-t border-white/15 pt-5 text-sm sm:grid-cols-3">
+            <dl className="mt-9 grid max-w-xl grid-cols-2 gap-x-6 gap-y-4 border-t border-forest-900/10 pt-5 sm:grid-cols-3">
               <div>
-                <dt className="text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-forest-200/60">
-                  Institution
-                </dt>
-                <dd className="mt-1 font-medium text-white">KARE, Tamil Nadu</dd>
+                <dt className="text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-muted">Feedstock</dt>
+                <dd className="mt-1 text-sm font-medium text-ink"><em>Prosopis juliflora</em></dd>
               </div>
               <div>
-                <dt className="text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-forest-200/60">
-                  Team
-                </dt>
-                <dd className="mt-1 font-medium text-white">Interdisciplinary</dd>
+                <dt className="text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-muted">Research stage</dt>
+                <dd className="mt-1 text-sm font-medium text-ink">Planning & validation</dd>
               </div>
-              <div>
-                <dt className="text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-forest-200/60">
-                  Stage
-                </dt>
-                <dd className="mt-1 font-medium text-white">Proposed research</dd>
+              <div className="col-span-2 sm:col-span-1">
+                <dt className="text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-muted">Institution</dt>
+                <dd className="mt-1 text-sm font-medium text-ink">KARE · Tamil Nadu, India</dd>
               </div>
             </dl>
           </div>
 
-          <div className="relative lg:pl-2">
-            <div className="rounded-3xl border border-white/15 bg-white/[0.075] p-5 shadow-2xl backdrop-blur-xl sm:p-6">
-              <div className="flex items-center justify-between gap-3">
-                <span className="text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-forest-200/70">
-                  Research focus
-                </span>
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-lime-400/25 bg-lime-400/10 px-2.5 py-1 text-[0.6875rem] font-semibold uppercase tracking-[0.08em] text-lime-300">
-                  <span className="h-1.5 w-1.5 rounded-full bg-lime-400" />
-                  In progress
-                </span>
-              </div>
-
-              <h2 className="mt-3 font-display text-xl font-semibold leading-snug text-white sm:text-2xl">
-                From local biomass to a measured fuel-property question
-              </h2>
-
-              <ol className="mt-5 space-y-3">
-                {focusSteps.map((step, index) => (
-                  <li key={step.label} className="flex items-start gap-3">
-                    <span className="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-xl border border-white/10 bg-white/10 text-lime-300">
-                      <Icon name={step.icon} className="h-4 w-4" />
-                    </span>
-                    <div>
-                      <div className="flex items-center gap-2 text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-forest-200/60">
-                        <span>{String(index + 1).padStart(2, "0")}</span>
-                        <span>{step.label}</span>
-                      </div>
-                      <p className="mt-0.5 text-sm leading-snug text-white">{step.value}</p>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-
-              <div className="mt-5 grid grid-cols-3 gap-2 border-t border-white/10 pt-4">
-                <div>
-                  <div className="font-display text-xl font-bold text-lime-400">08</div>
-                  <div className="text-[0.6875rem] leading-tight text-forest-100/65">workflow stages</div>
-                </div>
-                <div>
-                  <div className="font-display text-xl font-bold text-lime-400">05</div>
-                  <div className="text-[0.6875rem] leading-tight text-forest-100/65">planned blends</div>
-                </div>
-                <div>
-                  <div className="font-display text-xl font-bold text-lime-400">00</div>
-                  <div className="text-[0.6875rem] leading-tight text-forest-100/65">results claimed</div>
-                </div>
-              </div>
+          <figure className="min-w-0">
+            <div className="overflow-hidden rounded-md bg-forest-50">
+              <picture>
+                <source
+                  type="image/webp"
+                  srcSet="/assets/hero-700.webp 700w, /assets/hero-1000.webp 1000w, /assets/hero-1400.webp 1400w, /assets/hero-1800.webp 1800w, /assets/hero-2400.webp 2400w"
+                  sizes="(max-width: 1024px) 92vw, 52vw"
+                />
+                <img
+                  src="/assets/hero-1400.webp"
+                  alt="Illustrative research scene showing biomass, laboratory vessels and fuel samples; no project experiment is represented"
+                  width="1774"
+                  height="887"
+                  fetchpriority="high"
+                  decoding="async"
+                  className="aspect-[4/3] w-full object-cover object-center sm:aspect-[16/10]"
+                />
+              </picture>
             </div>
-
-            <div className="mt-3 flex items-center gap-2 rounded-2xl border border-white/10 bg-forest-950/40 px-4 py-3 text-xs leading-relaxed text-forest-100/70 backdrop-blur">
-              <Icon name="Info" className="h-4 w-4 shrink-0 text-lime-400" />
-              Planned work only. No experimental performance or emission result is claimed on this site.
-            </div>
-          </div>
+            <figcaption className="mt-3 flex items-start justify-between gap-4 border-t border-forest-900/10 pt-3 text-xs leading-relaxed text-muted">
+              <span>Illustrative research visual. Experimental work has not been completed.</span>
+              <span className="shrink-0 font-medium text-forest-800">REGen Pavilion · 2026</span>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>

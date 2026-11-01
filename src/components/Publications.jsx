@@ -1,4 +1,5 @@
-import { references, resources } from "../data/content";
+import { Link } from "react-router-dom";
+import { ownership, references, resources } from "../data/content";
 import Icon from "./Icon";
 import Reveal from "./Reveal";
 import ResponsiveImage from "./ResponsiveImage";
@@ -18,20 +19,30 @@ function ResourceCard({ item }) {
           alt={item.preview.alt}
           width="900"
           height="1231"
-          className="[&_img]:aspect-[4/3] [&_img]:object-cover [&_img]:object-top sm:[&_img]:aspect-[4/5]"
+          className="[&_img]:aspect-[3/4] [&_img]:object-contain"
         />
       </div>
       <div className="flex flex-1 flex-col p-5">
         <div className="flex items-start justify-between gap-3">
           <h3 className="font-display text-base font-semibold text-ink">{item.title}</h3>
-          <span className="inline-flex items-center gap-1 rounded-full border border-emerald-600/20 bg-emerald-50 px-2 py-0.5 text-[0.5625rem] font-semibold uppercase tracking-[0.06em] text-emerald-800">
+          <span className="inline-flex items-center gap-1 rounded-full border border-emerald-600/20 bg-emerald-50 px-2 py-0.5 text-[0.625rem] font-semibold uppercase tracking-[0.06em] text-emerald-800">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-600" />
             Available
           </span>
         </div>
         <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">{item.description}</p>
+        {item.evidenceNote && (
+          <p className="mt-3 border-l-2 border-amber-500 bg-amber-50/70 px-3 py-2 text-xs leading-relaxed text-amber-900">
+            {item.evidenceNote}
+          </p>
+        )}
         <div className="mt-4 flex flex-wrap gap-2">
-          <a href={item.file} download className="btn-primary !min-h-[2.5rem] !px-3.5 !py-2 !text-xs">
+          <a
+            href={item.file}
+            download
+            aria-label={`Download ${item.title} (PDF)`}
+            className="btn-primary !min-h-[2.5rem] !px-3.5 !py-2 !text-xs"
+          >
             <Icon name="Download" className="h-3.5 w-3.5" />
             Download
           </a>
@@ -39,6 +50,7 @@ function ResourceCard({ item }) {
             href={item.file}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={`View ${item.title} in a new tab (PDF)`}
             className="btn-outline !min-h-[2.5rem] !px-3.5 !py-2 !text-xs"
           >
             <Icon name="ExternalLink" className="h-3.5 w-3.5" />
@@ -62,6 +74,23 @@ export default function Publications() {
           />
         </Reveal>
 
+        <Reveal delay={40} className="mt-6">
+          <div className="flex items-start gap-3 rounded-2xl border border-forest-800/20 bg-forest-50 p-4 sm:p-5">
+            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-forest-800 text-lime-300">
+              <Icon name="Copyright" className="h-4 w-4" />
+            </span>
+            <p className="text-sm leading-relaxed text-forest-800">
+              <strong className="font-semibold text-forest-950">Author credit is not ownership.</strong>{" "}
+              Academic acknowledgement of the team does not transfer or share copyright or intellectual
+              property. The research and downloadable documents are owned by {ownership.ownerName}.{" "}
+              <Link to="/ownership" className="prose-link">
+                Read the ownership statement
+              </Link>
+              .
+            </p>
+          </div>
+        </Reveal>
+
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {resources.map((item, index) => (
             <Reveal key={item.title} delay={index * 60}>
@@ -75,7 +104,7 @@ export default function Publications() {
                 <span className="grid h-11 w-11 place-items-center rounded-xl bg-white text-muted ring-1 ring-forest-900/10">
                   <Icon name="Presentation" className="h-5 w-5" />
                 </span>
-                <span className="rounded-full border border-slate-300 bg-white px-2.5 py-1 text-[0.5625rem] font-semibold uppercase tracking-[0.06em] text-slate-600">
+                <span className="rounded-full border border-slate-300 bg-white px-2.5 py-1 text-[0.625rem] font-semibold uppercase tracking-[0.06em] text-slate-600">
                   Not available
                 </span>
               </div>
@@ -99,7 +128,10 @@ export default function Publications() {
                 <div className="eyebrow">Research progress</div>
                 <h3 className="mt-2 font-display text-xl font-semibold text-ink">Where the work stands</h3>
               </div>
-              <a href="#data" className="text-sm font-semibold text-forest-700 hover:text-forest-900">
+              <a
+                href="#data"
+                className="inline-flex min-h-[2.75rem] items-center text-sm font-semibold text-forest-700 hover:text-forest-900"
+              >
                 View timeline →
               </a>
             </div>
@@ -147,7 +179,7 @@ export default function Publications() {
           <ol className="mt-5 divide-y divide-forest-900/[0.07] overflow-hidden rounded-2xl border border-forest-900/10 bg-white">
             {references.map((reference, index) => (
               <li key={reference.doi} className="flex gap-4 p-4 sm:p-5">
-                <span className="font-display text-xs font-bold text-forest-400">
+                <span className="font-display text-xs font-bold text-forest-600">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <div className="min-w-0">
@@ -159,7 +191,8 @@ export default function Publications() {
                     href={reference.doi}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-1 inline-flex items-center gap-1.5 text-xs font-semibold text-forest-700 hover:text-forest-900"
+                    aria-label={`Open DOI record for “${reference.title}” in a new tab`}
+                    className="mt-1 inline-flex min-h-[2rem] items-center gap-1.5 py-1 text-xs font-semibold text-forest-700 hover:text-forest-900"
                   >
                     DOI
                     <Icon name="ExternalLink" className="h-3 w-3" />

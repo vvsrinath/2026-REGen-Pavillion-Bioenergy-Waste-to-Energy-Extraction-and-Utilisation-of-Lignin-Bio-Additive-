@@ -63,7 +63,8 @@ export default function Funding() {
                     href={route.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-4 inline-flex items-center gap-1.5 text-[0.8125rem] font-semibold text-forest-700 hover:text-forest-900"
+                    aria-label={`Open the ${route.programme} official portal for ${route.title} in a new tab`}
+                    className="mt-3 inline-flex min-h-[2.75rem] items-center gap-1.5 py-1 text-[0.8125rem] font-semibold text-forest-700 hover:text-forest-900"
                   >
                     Official portal
                     <Icon name="ExternalLink" className="h-3.5 w-3.5" />
@@ -115,7 +116,8 @@ export default function Funding() {
                           href={portal.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 font-medium text-forest-700 hover:text-forest-900"
+                          aria-label={`Visit the ${portal.name} official portal in a new tab`}
+                          className="inline-flex min-h-[2.5rem] items-center gap-1.5 font-medium text-forest-700 hover:text-forest-900"
                         >
                           Visit
                           <Icon name="ExternalLink" className="h-3.5 w-3.5" />
@@ -135,7 +137,7 @@ export default function Funding() {
                       <p className="text-sm font-semibold text-ink">{portal.name}</p>
                       <p className="mt-0.5 text-xs text-muted">{portal.focus}</p>
                     </div>
-                    <span className="shrink-0 rounded-full border border-amber-500/25 bg-amber-50 px-2 py-0.5 text-[0.5625rem] font-semibold text-amber-800">
+                    <span className="shrink-0 rounded-full border border-amber-500/25 bg-amber-50 px-2 py-0.5 text-[0.625rem] font-semibold text-amber-800">
                       Verify call
                     </span>
                   </div>
@@ -143,7 +145,8 @@ export default function Funding() {
                     href={portal.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-2 inline-flex items-center gap-1.5 text-xs font-semibold text-forest-700"
+                    aria-label={`Visit the ${portal.name} official portal in a new tab`}
+                    className="mt-1 inline-flex min-h-[2.75rem] items-center gap-1.5 py-1 text-xs font-semibold text-forest-700"
                   >
                     Visit official portal
                     <Icon name="ExternalLink" className="h-3 w-3" />

@@ -2,7 +2,8 @@ export const research = {
   shortTitle: "REGen Pavilion",
   title:
     "Extraction and Utilisation of Lignin as Bio-Additive in a Compression Ignition Engine Fuelled with Diesel Fuel — An Approach to Improve Fuel Properties",
-  heroTitle: "Turning Lignin into a Potential Bio-Additive for Diesel Fuel",
+  heroTitle:
+    "Extraction and Utilisation of Lignin as Bio-Additive in a Compression Ignition Engine Fuelled with Diesel Fuel — An Approach to Improve Fuel Properties",
   heroText:
     "Exploring lignin recovery, conversion and fuel-property evaluation for compression-ignition engine applications.",
   label: "Bioenergy | Fuel Research | R&D Collaboration",
@@ -10,6 +11,18 @@ export const research = {
   location: "Krishnankoil, Tamil Nadu, India",
   status: "Research in progress · 2026",
   updated: "November 2026",
+};
+
+export const ownership = {
+  ownerName: "Srinath Vatchavari Venkateshan",
+  summary:
+    "The REGen Pavilion research concept, research direction, research outputs, documents, website content and associated intellectual property and copyright are owned and managed solely by Srinath Vatchavari Venkateshan.",
+  contributors:
+    "Aarya Brat Shankar and R. Bhuvaneshwaran are acknowledged supporting team members, and Dr. S. K. Gowthaman advises as faculty mentor. Their involvement, acknowledgement or author credit does not give them any ownership, copyright or other rights in the research or its outputs.",
+  permission:
+    "No part of this research, the downloadable documents or this website may be reproduced, adapted, distributed or used commercially without prior written permission from the owner, except where applicable law allows.",
+  caveat:
+    "This statement records the project’s ownership position. It does not override applicable institutional policy or law, and any separate written agreement signed by the owner takes precedence.",
 };
 
 export const navLinks = [
@@ -332,9 +345,11 @@ export const team = [
   {
     initials: "SV",
     name: "Srinath Vatchavari Venkateshan",
-    role: "Presenting author",
+    role: "Project lead & IP owner",
     department: "Mechanical Engineering",
-    focus: "Fuel preparation, engine testing and project coordination.",
+    focus:
+      "Project conception and coordination, fuel preparation, engine testing, and management of intellectual property and copyright.",
+    owner: true,
     links: [
       { label: "GitHub", href: "https://github.com/vvsrinath", icon: "Github" },
       {
@@ -347,16 +362,18 @@ export const team = [
   {
     initials: "AS",
     name: "Aarya Brat Shankar",
-    role: "Team member",
+    role: "Supporting contributor",
     department: "Biotechnology",
-    focus: "Biomass processing, lignin recovery and biological characterisation.",
+    focus:
+      "Supporting contributor: biomass processing, lignin recovery and biological characterisation. No IP or copyright ownership.",
   },
   {
     initials: "RB",
     name: "R. Bhuvaneshwaran",
-    role: "Team member",
+    role: "Supporting contributor",
     department: "Electrical and Electronics Engineering",
-    focus: "Instrumentation, measurement and data acquisition support.",
+    focus:
+      "Supporting contributor: instrumentation, measurement and data acquisition. No IP or copyright ownership.",
   },
 ];
 
@@ -365,7 +382,8 @@ export const mentor = {
   name: "Dr. S. K. Gowthaman",
   role: "Faculty mentor",
   department: "Associate Professor, Mechanical Engineering",
-  focus: "Research direction, experimental design and academic guidance.",
+  focus:
+    "Academic guidance, research direction and experimental design. Mentorship does not confer IP or copyright ownership.",
 };
 
 export const properties = [
@@ -519,7 +537,9 @@ export const resources = [
     status: "Available",
     title: "Research poster",
     description:
-      "Poster presented for the Renewable Energy Research Poster Challenge 2026.",
+      "Submitted poster for the Renewable Energy Research Poster Challenge 2026, including a proposed workflow and expected-trend graphics.",
+    evidenceNote:
+      "The poster labels its charts as representative / expected trends, and its workflow includes example biomass species. These are illustrative, not measured results or a change to this site's specified feedstock, Prosopis juliflora.",
     preview: {
       src: "/assets/poster-preview-900.webp",
       srcSet: "/assets/poster-preview-600.webp 600w, /assets/poster-preview-900.webp 900w",

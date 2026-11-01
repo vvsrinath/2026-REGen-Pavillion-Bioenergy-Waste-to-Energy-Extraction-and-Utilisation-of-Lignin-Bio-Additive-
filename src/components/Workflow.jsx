@@ -42,10 +42,10 @@ export default function Workflow() {
                   <p className="mt-1.5 text-[0.8125rem] leading-relaxed text-muted">{step.text}</p>
                 </article>
 
-                {index < workflow.length - 1 && (
+                {index < workflow.length - 1 && (index + 1) % 4 !== 0 && (
                   <Icon
                     name="ChevronRight"
-                    className="absolute -right-3.5 top-1/2 z-10 hidden h-4 w-4 -translate-y-1/2 rounded-full bg-soft text-forest-400 lg:block"
+                    className="absolute -right-3.5 top-1/2 z-10 hidden h-4 w-4 -translate-y-1/2 rounded-full bg-soft text-forest-500 lg:block"
                   />
                 )}
               </div>

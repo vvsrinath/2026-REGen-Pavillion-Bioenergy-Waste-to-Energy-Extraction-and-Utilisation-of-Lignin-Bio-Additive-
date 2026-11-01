@@ -9,7 +9,12 @@ const sections = [
     body: (
       <p>
         REGen Pavilion is a student research initiative at {research.affiliation}, {research.location}. This
-        privacy policy explains how this website handles information.
+        privacy policy explains how this website handles information. Research ownership, intellectual
+        property and copyright are described in the{" "}
+        <Link to="/ownership" className="prose-link">
+          ownership statement
+        </Link>
+        .
       </p>
     ),
   },
@@ -113,7 +118,7 @@ export default function Privacy() {
             {sections.map((section, index) => (
               <section key={section.title}>
                 <h2 className="font-display text-lg font-semibold text-ink">
-                  <span className="mr-2 text-forest-400">{String(index + 1).padStart(2, "0")}</span>
+                  <span className="mr-2 text-forest-600">{String(index + 1).padStart(2, "0")}</span>
                   {section.title}
                 </h2>
                 <div className="mt-2 text-sm leading-relaxed text-muted">{section.body}</div>

@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /__forms.html
 
 Sitemap: https://YOUR-SITE.netlify.app/sitemap.xml

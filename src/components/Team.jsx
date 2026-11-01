@@ -1,4 +1,5 @@
-import { mentor, team } from "../data/content";
+import { Link } from "react-router-dom";
+import { mentor, ownership, team } from "../data/content";
 import Icon from "./Icon";
 import Reveal from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
@@ -42,9 +43,23 @@ export default function Team() {
               <article className="card group flex h-full flex-col p-5 transition-shadow hover:shadow-lift sm:p-6">
                 <div className="flex items-start justify-between gap-3">
                   <Avatar initials={member.initials} />
-                  <span className="rounded-full border border-forest-900/10 bg-forest-50 px-2.5 py-1 text-[0.625rem] font-semibold uppercase tracking-[0.08em] text-forest-700">
-                    {member.role}
-                  </span>
+                  <div className="flex flex-col items-end gap-1.5">
+                    <span
+                      className={`rounded-full border px-2.5 py-1 text-[0.625rem] font-semibold uppercase tracking-[0.08em] ${
+                        member.owner
+                          ? "border-forest-800/20 bg-forest-800 text-lime-300"
+                          : "border-forest-900/10 bg-forest-50 text-forest-700"
+                      }`}
+                    >
+                      {member.role}
+                    </span>
+                    {member.owner && (
+                      <span className="inline-flex items-center gap-1 rounded-full border border-amber-500/25 bg-amber-50 px-2 py-0.5 text-[0.625rem] font-semibold uppercase tracking-[0.06em] text-amber-800">
+                        <Icon name="Copyright" className="h-3 w-3" />
+                        Sole IP holder
+                      </span>
+                    )}
+                  </div>
                 </div>
                 <h3 className="mt-4 font-display text-lg font-semibold leading-snug text-ink">{member.name}</h3>
                 <p className="mt-1 text-sm font-medium text-forest-700">{member.department}</p>
@@ -57,7 +72,8 @@ export default function Team() {
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 rounded-lg border border-forest-900/10 px-2.5 py-1.5 text-xs font-medium text-forest-700 transition-colors hover:border-forest-700/30 hover:bg-forest-50"
+                        aria-label={`${member.name} on ${link.label} (opens in a new tab)`}
+                        className="inline-flex min-h-[2.5rem] items-center gap-1.5 rounded-lg border border-forest-900/10 px-2.5 py-1.5 text-xs font-medium text-forest-700 transition-colors hover:border-forest-700/30 hover:bg-forest-50"
                       >
                         <Icon name={link.icon} className="h-3.5 w-3.5" />
                         {link.label}
@@ -92,6 +108,35 @@ export default function Team() {
               {mentor.focus}
             </p>
           </article>
+        </Reveal>
+
+        <Reveal delay={100} className="mt-4">
+          <div className="rounded-2xl border border-forest-800/20 bg-forest-900 p-5 text-forest-50 sm:p-6">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-lime-400/15 text-lime-300">
+                <Icon name="Copyright" className="h-5 w-5" />
+              </span>
+              <div>
+                <h3 className="font-display text-base font-semibold text-white">
+                  Research, IP and copyright ownership
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-forest-100/80">
+                  <strong className="font-semibold text-white">{ownership.ownerName}</strong> is the sole
+                  owner and manager of the research, intellectual property and copyright described on this
+                  site. Aarya Brat Shankar and R. Bhuvaneshwaran are supporting contributors, and Dr. S. K.
+                  Gowthaman is the faculty mentor. They are acknowledged for their support only and hold no
+                  ownership, copyright or other rights in the research, unless separately agreed in writing.
+                </p>
+                <Link
+                  to="/ownership"
+                  className="mt-3 inline-flex min-h-[2.75rem] items-center gap-1.5 text-sm font-semibold text-lime-300 hover:text-lime-200"
+                >
+                  Read the full ownership statement
+                  <Icon name="ArrowRight" className="h-4 w-4" />
+                </Link>
+              </div>
+            </div>
+          </div>
         </Reveal>
 
         <p className="mt-4 text-xs leading-relaxed text-muted">
