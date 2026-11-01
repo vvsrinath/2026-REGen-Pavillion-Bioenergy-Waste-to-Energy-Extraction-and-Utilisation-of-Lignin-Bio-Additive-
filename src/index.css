@@ -1,0 +1,189 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --forest: #0b3d2e;
+    --forest-2: #2e7d32;
+    --lime: #a7d129;
+    --amber: #d99a35;
+    --ink: #18231d;
+    --muted: #65736a;
+    --soft: #f5f8f5;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  html,
+  body {
+    overflow-x: clip;
+  }
+
+  body {
+    @apply bg-white font-sans text-ink antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: rgba(167, 209, 41, 0.35);
+    color: #041d16;
+  }
+
+  :focus-visible {
+    outline: 2px solid #2e7d32;
+    outline-offset: 3px;
+  }
+
+  section[id] {
+    scroll-margin-top: 5.5rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .container-x {
+    width: 100%;
+    max-width: 88rem;
+    margin-inline: auto;
+    padding-inline: clamp(1rem, 4vw, 2.5rem);
+  }
+
+  .section-pad {
+    padding-block: clamp(3.75rem, 7vw, 7rem);
+  }
+
+  .display-1 {
+    font-family: "Manrope Variable", Manrope, Inter, system-ui, sans-serif;
+    font-size: clamp(2.35rem, 5.1vw, 4.5rem);
+    line-height: 1.04;
+    letter-spacing: -0.035em;
+    font-weight: 700;
+    text-wrap: balance;
+  }
+
+  .display-2 {
+    font-family: "Manrope Variable", Manrope, Inter, system-ui, sans-serif;
+    font-size: clamp(1.8rem, 3.6vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: -0.028em;
+    font-weight: 700;
+    text-wrap: balance;
+  }
+
+  .display-3 {
+    font-family: "Manrope Variable", Manrope, Inter, system-ui, sans-serif;
+    font-size: clamp(1.25rem, 2vw, 1.55rem);
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    font-weight: 650;
+    text-wrap: balance;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-[0.6875rem] font-semibold uppercase tracking-[0.2em] text-forest-700;
+  }
+
+  .eyebrow::before {
+    content: "";
+    @apply h-1.5 w-1.5 rounded-full bg-lime-500;
+  }
+
+  .lead {
+    @apply text-[1.02rem] leading-relaxed text-muted sm:text-lg;
+  }
+
+  .body-copy {
+    @apply text-[0.95rem] leading-relaxed text-muted;
+  }
+
+  .card {
+    @apply rounded-2xl border border-forest-900/10 bg-white shadow-soft;
+  }
+
+  .card-muted {
+    @apply rounded-2xl border border-forest-900/10 bg-soft;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-forest-900/10 bg-white/80 px-3 py-1 text-xs font-medium text-forest-800;
+  }
+
+  .btn {
+    @apply inline-flex min-h-[2.75rem] items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest-600 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-60;
+  }
+
+  .btn-primary {
+    @apply btn bg-forest-800 text-white hover:bg-forest-900;
+  }
+
+  .btn-lime {
+    @apply btn bg-lime-500 text-forest-950 hover:bg-lime-400;
+  }
+
+  .btn-outline {
+    @apply btn border border-forest-900/15 bg-white text-forest-900 hover:border-forest-900/30 hover:bg-forest-50;
+  }
+
+  .btn-ghost-light {
+    @apply btn border border-white/25 bg-white/10 text-white backdrop-blur hover:bg-white/20;
+  }
+
+  .field-label {
+    @apply mb-1.5 block text-sm font-semibold text-ink;
+  }
+
+  .field-control {
+    @apply w-full rounded-xl border border-forest-900/15 bg-white px-3.5 py-2.5 text-sm text-ink placeholder:text-muted/60 focus:border-forest-600 focus:outline-none focus:ring-2 focus:ring-forest-600/20;
+  }
+
+  .field-error {
+    @apply mt-1.5 flex items-start gap-1.5 text-xs font-medium text-red-700;
+  }
+
+  .prose-link {
+    @apply font-medium text-forest-700 underline decoration-forest-300 underline-offset-2 hover:decoration-forest-700;
+  }
+}
+
+/* Subtle reveal animation. Content remains visible without JS. */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Prevents layout shift when the mobile drawer locks scrolling. */
+body.menu-open {
+  overflow: hidden;
+}
