@@ -148,6 +148,18 @@ export default function Footer() {
           .
         </p>
         <p className="mt-3 max-w-4xl text-[0.6875rem] leading-relaxed text-forest-100/70">
+          Website design &amp; development by{" "}
+          <a
+            href="https://github.com/vvsrinath"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-forest-100 underline underline-offset-2 hover:text-white"
+          >
+            Srinath Vatchavari Venkateshan
+          </a>
+          .
+        </p>
+        <p className="mt-3 max-w-4xl text-[0.6875rem] leading-relaxed text-forest-100/70">
           This website describes proposed research. It does not claim completed experiments, measured
           performance, funding, partnerships or commercial outcomes. Illustrative figures and the planned
           blend matrix are labelled and are not experimental findings. Institutional affiliation:{" "}

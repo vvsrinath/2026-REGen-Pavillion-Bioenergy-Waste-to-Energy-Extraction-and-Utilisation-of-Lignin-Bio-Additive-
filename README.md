@@ -6,6 +6,8 @@ Compression Ignition Engine Fuelled with Diesel Fuel — An Approach to Improve 
 Built with React, Vite, Tailwind CSS and Lucide icons. The site is a single-page research programme with
 separate privacy and ownership pages, and deploys as a static site on Netlify.
 
+Designed and developed by **Srinath Vatchavari Venkateshan**.
+
 > **Content integrity:** the site describes proposed research. It does not claim completed experiments,
 > measured performance, emissions reductions, funding, partnerships or commercial outcomes. Charts and the
 > blend matrix are explicitly labelled as planned or illustrative.
