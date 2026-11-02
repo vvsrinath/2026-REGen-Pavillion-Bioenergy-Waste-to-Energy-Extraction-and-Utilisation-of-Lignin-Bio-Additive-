@@ -11,6 +11,7 @@ export const research = {
   location: "Krishnankoil, Tamil Nadu, India",
   status: "Research in progress · 2026",
   updated: "November 2026",
+  contactEmail: "9926009061@klu.ac.in",
 };
 
 export const ownership = {

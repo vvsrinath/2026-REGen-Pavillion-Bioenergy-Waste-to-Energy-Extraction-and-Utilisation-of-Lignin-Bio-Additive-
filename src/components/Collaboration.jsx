@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { collaborationAudiences, interestOptions } from "../data/content";
+import { collaborationAudiences, interestOptions, research } from "../data/content";
 import Icon from "./Icon";
 import Reveal from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
@@ -17,6 +17,29 @@ const initialValues = {
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
+const MAX_MESSAGE = 1500;
+
+function buildEmailDraft(values) {
+  const subject = `Collaboration enquiry — ${values.interest} — ${values.name.trim()}`;
+  const body = [
+    `Name: ${values.name.trim()}`,
+    `Institution / organisation: ${values.institution.trim()}`,
+    `Professional email: ${values.email.trim()}`,
+    `Area of interest: ${values.interest}`,
+    "",
+    "Message:",
+    values.message.trim(),
+    "",
+    "Consent: Yes — I consent to the research team using these details to respond to this enquiry.",
+    "",
+    "Sent from the REGen Pavilion collaboration enquiry form.",
+  ].join("\n");
+
+  return `mailto:${research.contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+    body,
+  )}`;
+}
+
 function validate(values) {
   const errors = {};
   if (values.name.trim().length < 2) errors.name = "Please enter your full name.";
@@ -24,6 +47,8 @@ function validate(values) {
   if (!emailPattern.test(values.email.trim())) errors.email = "Please enter a valid professional email address.";
   if (!values.interest) errors.interest = "Please choose an area of interest.";
   if (values.message.trim().length < 20) errors.message = "Please add at least 20 characters about your enquiry.";
+  if (values.message.trim().length > MAX_MESSAGE)
+    errors.message = `Please keep your message under ${MAX_MESSAGE} characters.`;
   if (!values.consent) errors.consent = "Please confirm that you consent to being contacted about this enquiry.";
   return errors;
 }
@@ -33,6 +58,7 @@ export default function Collaboration() {
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState("idle");
   const [submitError, setSubmitError] = useState("");
+  const [draftUrl, setDraftUrl] = useState("");
   const formRef = useRef(null);
   const successRef = useRef(null);
 
@@ -49,10 +75,17 @@ export default function Collaboration() {
   }, []);
 
   useEffect(() => {
-    if (status === "success") {
-      successRef.current?.focus();
-    }
-  }, [status]);
+    if (status !== "success") return undefined;
+    successRef.current?.focus();
+    if (!draftUrl) return undefined;
+
+    // After the enquiry is stored, hand the visitor a pre-filled email draft so the
+    // message is also delivered through their own mail client.
+    const timer = window.setTimeout(() => {
+      window.location.href = draftUrl;
+    }, 700);
+    return () => window.clearTimeout(timer);
+  }, [status, draftUrl]);
 
   const update = (field) => (event) => {
     const value = field === "consent" ? event.target.checked : event.target.value;
@@ -83,6 +116,7 @@ export default function Collaboration() {
 
     setStatus("submitting");
     setSubmitError("");
+    setDraftUrl(buildEmailDraft(values));
 
     try {
       const body = new URLSearchParams({
@@ -110,8 +144,8 @@ export default function Collaboration() {
       setStatus("error");
       setSubmitError(
         import.meta.env.DEV
-          ? "Form delivery is available on the deployed Netlify site. Locally, the form cannot be submitted — validation and layout can still be reviewed."
-          : "Your enquiry could not be sent. Please check your connection and try again in a moment.",
+          ? "Form delivery is available on the deployed Netlify site. Locally, the form cannot be submitted — use the formatted email draft below instead."
+          : "Your enquiry could not be sent automatically. Use the formatted email draft below to send it directly to the research team.",
       );
     }
   };
@@ -167,10 +201,15 @@ export default function Collaboration() {
                   </span>
                   <h3 className="mt-5 font-display text-xl font-semibold text-ink">Enquiry received</h3>
                   <p className="mt-2 max-w-sm text-sm leading-relaxed text-muted">
-                    Thank you. Your enquiry has been submitted through the site. The research team will
-                    respond using the professional email address you provided.
+                    Your enquiry has been recorded. A pre-formatted email draft should open in your email app
+                    so the same details reach the research team directly. If nothing opened, send the draft
+                    with the button below.
                   </p>
-                  <button type="button" onClick={() => setStatus("idle")} className="btn-outline mt-6">
+                  <a href={draftUrl} className="btn-primary mt-6">
+                    <Icon name="Mail" className="h-4 w-4" />
+                    Open the email draft
+                  </a>
+                  <button type="button" onClick={() => setStatus("idle")} className="btn-outline mt-3">
                     Send another enquiry
                   </button>
                 </div>
@@ -325,6 +364,7 @@ export default function Collaboration() {
                           id="message"
                           name="message"
                           rows="4"
+                          maxLength={MAX_MESSAGE}
                           value={values.message}
                           onChange={update("message")}
                           aria-invalid={Boolean(errors.message)}
@@ -374,13 +414,29 @@ export default function Collaboration() {
                     {status === "error" && submitError && (
                       <div role="alert" className="mt-4 flex items-start gap-2.5 rounded-xl border border-red-500/20 bg-red-50 px-3.5 py-3 text-xs leading-relaxed text-red-800">
                         <Icon name="CircleAlert" className="mt-0.5 h-4 w-4 shrink-0" />
-                        <span>{submitError}</span>
+                        <div>
+                          <p>{submitError}</p>
+                          {draftUrl && (
+                            <a
+                              href={draftUrl}
+                              className="mt-2 inline-flex min-h-[2.75rem] items-center gap-1.5 font-semibold text-red-900 underline decoration-red-400 underline-offset-2 hover:decoration-red-900"
+                            >
+                              <Icon name="Mail" className="h-3.5 w-3.5" />
+                              Open the formatted email draft
+                            </a>
+                          )}
+                        </div>
                       </div>
                     )}
 
                     <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                       <p className="text-[0.6875rem] leading-relaxed text-muted">
-                        Processed by Netlify Forms. No analytics or advertising cookies are used.
+                        Sent through Netlify Forms, then a formatted email draft opens in your mail app. You
+                        can also write to{" "}
+                        <a href={`mailto:${research.contactEmail}`} className="prose-link">
+                          {research.contactEmail}
+                        </a>
+                        . No analytics or advertising cookies are used.
                       </p>
                       <button
                         type="submit"

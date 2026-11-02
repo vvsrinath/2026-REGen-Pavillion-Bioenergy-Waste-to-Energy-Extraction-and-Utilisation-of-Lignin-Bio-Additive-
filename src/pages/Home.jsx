@@ -1,5 +1,6 @@
 import Hero from "../components/Hero";
 import ResearchOverview from "../components/ResearchOverview";
+import ClaimStandard from "../components/ClaimStandard";
 import Workflow from "../components/Workflow";
 import Methodology from "../components/Methodology";
 import DataVisualisation from "../components/DataVisualisation";
@@ -15,6 +16,7 @@ export default function Home() {
     <>
       <Hero />
       <ResearchOverview />
+      <ClaimStandard />
       <Workflow />
       <Methodology />
       <DataVisualisation />

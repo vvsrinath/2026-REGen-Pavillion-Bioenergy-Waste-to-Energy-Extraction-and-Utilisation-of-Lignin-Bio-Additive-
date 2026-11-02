@@ -55,17 +55,23 @@ export default function FinalCta() {
                   <li className="flex items-start gap-3">
                     <Icon name="Mail" className="mt-0.5 h-4 w-4 shrink-0 text-lime-400" />
                     <span className="text-forest-100/85">
-                      Enquiries through the collaboration form
+                      <a
+                        href={`mailto:${research.contactEmail}`}
+                        className="break-all text-lime-300 underline decoration-lime-400/40 underline-offset-2 hover:decoration-lime-300"
+                      >
+                        {research.contactEmail}
+                      </a>
                       <br />
                       <a href="#collaborate" className="text-lime-300 underline-offset-2 hover:underline">
-                        Open the form
+                        Or use the collaboration form
                       </a>
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
                     <Icon name="ShieldCheck" className="mt-0.5 h-4 w-4 shrink-0 text-lime-400" />
                     <span className="text-forest-100/85">
-                      Personal contact details are not published without consent.
+                      The form opens a pre-formatted email draft so your enquiry reaches the research team
+                      directly.
                     </span>
                   </li>
                 </ul>

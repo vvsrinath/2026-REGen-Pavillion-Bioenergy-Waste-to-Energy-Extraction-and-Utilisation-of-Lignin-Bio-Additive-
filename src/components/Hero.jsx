@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
 import Icon from "./Icon";
-import { research } from "../data/content";
+import { ownership, research } from "../data/content";
 
 export default function Hero() {
   return (
@@ -55,6 +56,31 @@ export default function Hero() {
                 <dd className="mt-1 text-sm font-medium text-ink">KARE · Tamil Nadu, India</dd>
               </div>
             </dl>
+
+            <div className="mt-6 rounded-2xl border border-forest-800/15 bg-forest-50 p-4 sm:p-5">
+              <div className="flex items-start gap-3">
+                <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-forest-800 text-lime-300">
+                  <Icon name="Copyright" className="h-4 w-4" />
+                </span>
+                <div>
+                  <p className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-forest-700">
+                    Research ownership
+                  </p>
+                  <p className="mt-1 text-sm leading-relaxed text-forest-900">
+                    Owned and managed solely by{" "}
+                    <strong className="font-semibold">{ownership.ownerName}</strong>. Supporting contributors
+                    and the faculty mentor hold no IP or copyright ownership.
+                  </p>
+                  <Link
+                    to="/ownership"
+                    className="mt-1 inline-flex min-h-[2.5rem] items-center gap-1.5 text-xs font-semibold text-forest-700 underline decoration-forest-300 underline-offset-2 hover:decoration-forest-700"
+                  >
+                    Read the ownership statement
+                    <Icon name="ArrowRight" className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
 
           <figure className="min-w-0">

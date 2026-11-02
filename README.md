@@ -78,6 +78,9 @@ React Router can serve `/privacy`, `/ownership` and the 404 page without a serve
 3. **Enable form submissions.** The collaboration form posts to Netlify Forms:
    - `public/__forms.html` contains the hidden static form used by Netlify for detection.
    - The React form in `src/components/Collaboration.jsx` submits URL-encoded data to `/`.
+   - After a successful submission, the form builds a formatted `mailto:` draft (name, institution, email,
+     interest and message) to `9926009061@klu.ac.in` and opens it in the visitor's email app. The success
+     and error states also keep a visible link to that draft, so an enquiry never dead-ends.
     - After the first deploy, confirm **Forms → collaboration** exists in the Netlify dashboard, then add an
        **Email notification** addressed to your verified inbox. Form submissions are stored by Netlify, but
        they will not arrive by email until this notification is configured in the site dashboard.
@@ -94,9 +97,10 @@ React Router can serve `/privacy`, `/ownership` and the 404 page without a serve
    assets. Field photographs of the selected *Prosopis juliflora* stand, the recovered lignin, the
    conversion set-up and the engine test rig should replace them when approved.
 
-6. **Do not publish personal contact details without permission.** The design routes enquiries through the
-   form and avoids exposing email addresses. Srinath’s GitHub and LinkedIn links are included because they
-   were explicitly supplied.
+6. **Contact details.** The only published contact address is the owner-supplied project email
+   `9926009061@klu.ac.in`. Do not add personal phone numbers, home addresses or other people’s email
+   addresses without their explicit permission. Srinath’s GitHub and LinkedIn links are included because
+   they were explicitly supplied.
 
 ---
 
@@ -176,6 +180,8 @@ React Router can serve `/privacy`, `/ownership` and the 404 page without a serve
 - The form requests only name, institution, professional email, area of interest, message and consent.
 - It warns against submitting confidential data.
 - Netlify Forms processes submissions; add a notification destination in the Netlify dashboard.
+- After a successful submission the form opens a formatted email draft to the project address, and both the
+  success and error states provide a manual fallback link to the same draft.
 - The site uses no analytics, advertising cookies or tracking pixels.
 - The privacy page explains data use, retention and removal requests.
 

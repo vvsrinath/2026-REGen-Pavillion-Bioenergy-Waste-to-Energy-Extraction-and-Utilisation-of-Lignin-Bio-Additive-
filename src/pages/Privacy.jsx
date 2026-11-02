@@ -31,6 +31,10 @@ const sections = [
           institution, professional email address, area of interest, message and consent confirmation. The
           form is processed by Netlify Forms on our behalf.
         </p>
+        <p className="mt-3">
+          After a successful submission, the site opens a pre-formatted draft in your own email application
+          addressed to {research.contactEmail}. Nothing is sent by that draft until you choose to send it.
+        </p>
       </>
     ),
   },
@@ -130,7 +134,11 @@ export default function Privacy() {
             <h2 className="font-display text-base font-semibold text-ink">Contact about privacy</h2>
             <p className="mt-2 text-sm leading-relaxed text-muted">
               Use the collaboration enquiry form and select “Other” as the area of interest, or state your
-              privacy request in the message.
+              privacy request in the message. You can also email{" "}
+              <a href={`mailto:${research.contactEmail}`} className="prose-link break-all">
+                {research.contactEmail}
+              </a>
+              .
             </p>
             <Link to="/#collaborate" className="btn-primary mt-4">
               Open enquiry form
